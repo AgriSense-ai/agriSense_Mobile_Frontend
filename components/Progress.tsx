@@ -7,19 +7,19 @@ interface ProgressPieProps {
 }
 
 const ProgressPie: React.FC<ProgressPieProps> = ({ progress }) => {
-  const wheelSize = 60;
+  const wheelSize = 80;
   const radius = wheelSize;
   const svgSize = wheelSize * 2 + 20;
-  const strokeWidth = 50;
+  const strokeWidth = 30;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
     <View style={styles.container}>
-      <Svg height={svgSize} width={svgSize}>
+      <Svg height={svgSize + 40} width={svgSize + 40} style={{ padding: 20 }}>
         <Circle
-          cx={svgSize / 2}
-          cy={svgSize / 2}
+          cx={(svgSize + 40) / 2}
+          cy={(svgSize + 40) / 2}
           r={radius}
           stroke="#e6e6e6"
           strokeWidth={strokeWidth}
@@ -27,14 +27,15 @@ const ProgressPie: React.FC<ProgressPieProps> = ({ progress }) => {
         />
         <Circle
           r={radius}
-          cx={svgSize / 2}
-          cy={svgSize / 2}
+          cx={(svgSize + 40) / 2}
+          cy={(svgSize + 40) / 2}
           stroke="#4caf50"
           strokeWidth={strokeWidth}
           fill="none"
           strokeDasharray={`${circumference} ${circumference}`}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
+          transform={`rotate(-90 ${(svgSize + 40) / 2} ${(svgSize + 40) / 2})`}
         />
       </Svg>
       <Text style={styles.text}>{`${progress}%`}</Text>
@@ -49,9 +50,9 @@ const styles = StyleSheet.create({
   },
   text: {
     position: "absolute",
-    fontSize: 18,
+    fontSize: 28,
     fontWeight: "bold",
-    color: "#4caf50",
+    color: "#0F4332",
   },
 });
 
