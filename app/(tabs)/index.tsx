@@ -66,7 +66,7 @@ export default function HomeScreen() {
       }}
     >
       <ImageBackground
-        source={require("@/assets/images/partial-react-logo.png")}
+        source={require("../assets/assets/images/Background.png")}
         resizeMode="cover"
         style={styles.reactLogo}
       ></ImageBackground>
