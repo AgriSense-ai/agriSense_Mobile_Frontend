@@ -10,6 +10,9 @@ import {
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
+import ProgressPie from "@/components/Progress";
+
+const backgroundImage = require("@/assets/images/Background.png");
 
 export default function HomeScreen() {
   return (
@@ -66,10 +69,11 @@ export default function HomeScreen() {
       }}
     >
       <ImageBackground
-        source={require("../assets/assets/images/Background.png")}
+        source={backgroundImage}
         resizeMode="cover"
         style={styles.reactLogo}
       ></ImageBackground>
+      <ProgressPie progress={80} />
       <ThemedText type="title">Welcome!</ThemedText>
       <HelloWave />
       <Text>Hello World</Text>
@@ -92,6 +96,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     position: "absolute",
-    opacity: 0.5,
+    opacity: 0.3,
   },
 });
