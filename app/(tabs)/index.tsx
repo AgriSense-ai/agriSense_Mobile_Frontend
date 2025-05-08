@@ -12,7 +12,7 @@ import { ThemedText } from "@/components/ThemedText";
 import ProgressPie from "@/components/indexPage/progressView/Progress";
 import CardLayout from "@/components/indexPage/progressCards/cardLayout";
 import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
-import ServicesCard from "@/components/indexPage/servicesCenter/servicesCard";
+import ServicesLayout from "@/components/indexPage/servicesCenter/servicesLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 
@@ -77,7 +77,7 @@ export default function HomeScreen() {
       ></ImageBackground>
       <ProgressLayout />
       <CardLayout />
-      <ServicesCard />
+      <ServicesLayout />
     </View>
   );
 }
