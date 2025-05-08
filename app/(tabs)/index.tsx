@@ -8,9 +8,10 @@ import {
 } from "react-native";
 
 import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
-import ProgressPie from "@/components/Progress";
+import ProgressPie from "@/components/indexPage/progressView/Progress";
+import CardLayout from "@/components/indexPage/progressCards/cardLayout";
+import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 
@@ -73,10 +74,8 @@ export default function HomeScreen() {
         resizeMode="cover"
         style={styles.reactLogo}
       ></ImageBackground>
-      <ProgressPie progress={80} />
-      <ThemedText type="title">Welcome!</ThemedText>
-      <HelloWave />
-      <Text>Hello World</Text>
+      <ProgressLayout />
+      <CardLayout />
     </View>
   );
 }
@@ -96,6 +95,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     position: "absolute",
-    opacity: 0.3,
+    opacity: 0.2,
   },
 });
