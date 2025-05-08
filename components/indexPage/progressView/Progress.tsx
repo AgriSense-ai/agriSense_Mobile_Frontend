@@ -16,7 +16,18 @@ const ProgressPie: React.FC<ProgressPieProps> = ({ progress }) => {
 
   return (
     <View style={styles.container}>
-      <Svg height={svgSize + 40} width={svgSize + 40} style={{ padding: 20 }}>
+      <Svg
+        height={svgSize + 40}
+        width={svgSize + 40}
+        style={{
+          padding: 20,
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.5,
+          shadowRadius: 6,
+          elevation: 5, // For Android shadow
+          borderRadius: 11,}}
+      >
         <Circle
           cx={(svgSize + 40) / 2}
           cy={(svgSize + 40) / 2}
