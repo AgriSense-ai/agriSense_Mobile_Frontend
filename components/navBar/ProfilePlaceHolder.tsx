@@ -9,8 +9,8 @@ const ProfilePlaceHolder = () => {
       <Image
         source={profileImage}
         style={{
-          width: 10,
-          height: 10,
+          width: 50,
+          height: 50,
           aspectRatio: 1,
           borderRadius: '50%',
         }}

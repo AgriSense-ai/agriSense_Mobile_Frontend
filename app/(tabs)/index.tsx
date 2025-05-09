@@ -13,6 +13,7 @@ import ProgressPie from "@/components/indexPage/progressView/Progress";
 import CardLayout from "@/components/indexPage/progressCards/cardLayout";
 import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
 import ServicesLayout from "@/components/indexPage/servicesCenter/servicesLayout";
+import NavBarLayout from "@/components/navBar/navBarLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 
@@ -62,12 +63,12 @@ export default function HomeScreen() {
     //     </ThemedText>
     //   </ThemedView>
     // </ParallaxScrollView>
-
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-end",
         alignItems: "center",
+        paddingTop: 50,
       }}
     >
       <ImageBackground
@@ -75,9 +76,19 @@ export default function HomeScreen() {
         resizeMode="cover"
         style={styles.reactLogo}
       ></ImageBackground>
-      <ProgressLayout />
-      <CardLayout />
-      <ServicesLayout />
+      <NavBarLayout />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "flex-start",
+          alignItems: "center",
+          paddingTop: 50,
+        }}
+      >
+        <ProgressLayout />
+        <CardLayout />
+        <ServicesLayout />
+      </View>
     </View>
   );
 }
