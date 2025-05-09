@@ -15,8 +15,8 @@ const CardCases: React.FC<{ number: number; label: string }> = ({
 
 const styles = StyleSheet.create({
   card: {
-    width: 100,
-    height: 100,
+    width: 105,
+    height: 105,
     backgroundColor: "#fff",
     borderRadius: 11,
     justifyContent: "center",

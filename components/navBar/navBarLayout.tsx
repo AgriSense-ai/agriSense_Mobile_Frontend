@@ -1,12 +1,13 @@
 import { View, Image, StyleSheet } from "react-native";
 import ProfilePlaceHolder from "./ProfilePlaceHolder";
 
-// const logoImage = require("@/assets/images/Logo/logo.png");
+const logoImage = require("@/assets/images/Logo/icon.png");
 
 function navBarLayout() {
   return (
     <View>
       <View style={styles.layoutContainer}>
+        <Image source={logoImage} style={styles.ImageContainer}></Image>
         <ProfilePlaceHolder />
       </View>
     </View>
@@ -14,22 +15,25 @@ function navBarLayout() {
 }
 
 const styles = StyleSheet.create({
-  navBar: {
-    // justifyContent: "center",
-    // alignItems: "center",
-    // backgroundColor: "transparent",
+  ImageContainer: {
+    width: 50,
+    height: 50,
+    aspectRatio: 1,
+    marginLeft: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   layoutContainer: {
-    position: "relative",
-    // backgroundColor: "rgba(255, 255, 255, 0.5)",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
     width: 380,
     height: 50,
-    backgroundColor: "#fff",
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-    // justifyContent: "space-between",
-    // flexDirection: "row",
-    // alignItems: "center",
+    backgroundColor: "transarent",
   },
 });
 export default navBarLayout;

@@ -5,7 +5,15 @@ const profileImage = require("@/assets/images/Logo/profile.png");
 
 const ProfilePlaceHolder = () => {
   return (
-    <View>
+    <View
+      style={{
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+      }}
+    >
       <Image
         source={profileImage}
         style={{
