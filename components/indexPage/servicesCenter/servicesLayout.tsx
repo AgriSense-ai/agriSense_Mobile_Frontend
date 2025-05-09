@@ -19,7 +19,14 @@ const Services = [
 function ServicesLayout() {
   return (
     <View style={styles.cardContainer}>
-      <ThemedText style={{ fontSize: 27, fontWeight: "bold", margin: 10, paddingTop: 10 }}>
+      <ThemedText
+        style={{
+          fontSize: 27,
+          fontWeight: "bold",
+          marginLeft: 10,
+          paddingTop: 10,
+        }}
+      >
         Services
       </ThemedText>
       <View style={styles.card}>
