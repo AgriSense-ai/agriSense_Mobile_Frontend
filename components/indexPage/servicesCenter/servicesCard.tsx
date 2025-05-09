@@ -11,8 +11,14 @@ function introCard({ label, image }: CardProps) {
   return (
     <View style={styles.cardContainer}>
       <Image source={image} style={styles.cardImage} />
-      <View style={{ paddingTop: 10 }}>
-        <Text style={{ fontSize: 16, fontWeight: "bold" }}>{label}</Text>
+      <View
+        style={{
+          paddingTop: 10,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Text style={{ fontSize: 16, fontWeight: "bold", textAlign: "center" }}>{label}</Text>
       </View>
     </View>
   );

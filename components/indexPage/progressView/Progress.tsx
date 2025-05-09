@@ -1,3 +1,4 @@
+import { Colors } from "@/constants/Colors";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Svg, Circle } from "react-native-svg";
@@ -26,7 +27,8 @@ const ProgressPie: React.FC<ProgressPieProps> = ({ progress }) => {
           shadowOpacity: 0.5,
           shadowRadius: 6,
           elevation: 5, // For Android shadow
-          borderRadius: 11,}}
+          borderRadius: 11,
+        }}
       >
         <Circle
           cx={(svgSize + 40) / 2}
@@ -61,9 +63,9 @@ const styles = StyleSheet.create({
   },
   text: {
     position: "absolute",
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#0F4332",
+    fontSize: 12,
+    fontWeight: "light",
+    color: Colors.light.text,
   },
 });
 

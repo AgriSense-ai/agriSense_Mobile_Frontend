@@ -1,5 +1,6 @@
 import { View, StyleSheet } from "react-native";
 import IntroCard from "./servicesCard";
+import { ThemedText } from "@/components/ThemedText";
 
 const gardenManagementImage = require("@/assets/images/SVGs/PlantIntro.png");
 const gardenResourcesImage = require("@/assets/images/SVGs/BookIntro.png");
@@ -17,26 +18,35 @@ const Services = [
 
 function ServicesLayout() {
   return (
-    <View style={styles.card}>
-      {Services.map((service, index) => (
-        <IntroCard
-          key={index}
-          label={service.label}
-          image={service.image}
-          onPress={() => console.log(`${service.label} pressed`)}
-        />
-      ))}
+    <View style={styles.cardContainer}>
+      <ThemedText style={{ fontSize: 27, fontWeight: "bold", margin: 10, paddingTop: 10 }}>
+        Services
+      </ThemedText>
+      <View style={styles.card}>
+        {Services.map((service, index) => (
+          <IntroCard
+            key={index}
+            label={service.label}
+            image={service.image}
+            onPress={() => console.log(`${service.label} pressed`)}
+          />
+        ))}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  cardContainer: {
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
   card: {
     flexDirection: "row",
     margin: 10,
     width: "85%",
     gap: 10,
-    justifyContent: "space-between",   
+    justifyContent: "space-between",
     borderRadius: 11,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },

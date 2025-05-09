@@ -38,7 +38,8 @@ export default function HomeScreen() {
             flex: 1,
             justifyContent: "flex-start",
             alignItems: "center",
-            paddingTop: 50,
+            paddingTop: -1,
+            marginTop: 24,
           }}
         >
           <ProgressLayout />
