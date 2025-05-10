@@ -1,6 +1,4 @@
-import { Image } from "expo-image";
 import { StyleSheet, View, ImageBackground } from "react-native";
-
 import CardLayout from "@/components/indexPage/progressCards/cardLayout";
 import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
 import ServicesLayout from "@/components/indexPage/servicesCenter/servicesLayout";
@@ -13,7 +11,7 @@ export default function HomeScreen() {
   return (
     <ImageBackground
       source={backgroundImage}
-      resizeMode="cover"
+      resizeMode="stretch"
       style={{
         flex: 1,
         justifyContent: "center",
@@ -22,6 +20,9 @@ export default function HomeScreen() {
       }}
       imageStyle={{
         opacity: 0.2,
+        position: "absolute",
+        width: "100%",
+        height: "100%",
       }}
     >
       <View
@@ -39,7 +40,7 @@ export default function HomeScreen() {
             justifyContent: "flex-start",
             alignItems: "center",
             paddingTop: -1,
-            marginTop: 24,
+            marginTop: 10,
           }}
         >
           <ProgressLayout />
