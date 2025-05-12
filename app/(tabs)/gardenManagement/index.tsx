@@ -1,7 +1,7 @@
 import { StyleSheet, View, ImageBackground } from "react-native";
 import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
-import ServicesLayout from "@/components/indexPage/servicesCenter/servicesLayout";
 import NavBarLayout from "@/components/navBar/navBarLayout";
+import ProgressCard from "@/components/gardenManagement/progressCard";
 import { Colors } from "@/constants/Colors";
 
 const backgroundImage = require("@/assets/images/Background.png");
@@ -42,7 +42,7 @@ export default function HomeScreen() {
             marginTop: 10,
           }}
         >
-          <ProgressLayout />
+          <ProgressCard />
         </View>
       </View>
     </ImageBackground>

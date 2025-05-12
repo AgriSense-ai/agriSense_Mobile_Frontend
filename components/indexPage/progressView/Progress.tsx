@@ -5,13 +5,21 @@ import { Svg, Circle } from "react-native-svg";
 
 interface ProgressPieProps {
   progress: number; // Progress as a percentage (0 to 100)
+  circleSize?: number; // Optional size prop to customize the wheel size
+  strokeWidt?: number;
+  fontSize?: number; // Optional stroke width prop to customize the wheel stroke width
 }
 
-const ProgressPie: React.FC<ProgressPieProps> = ({ progress }) => {
-  const wheelSize = 80;
+const ProgressPie: React.FC<ProgressPieProps> = ({
+  progress,
+  circleSize,
+  strokeWidt,
+  fontSize,
+}: ProgressPieProps) => {
+  const wheelSize = circleSize || 85; // Default size if not provided
   const radius = wheelSize;
   const svgSize = wheelSize * 2 + 20;
-  const strokeWidth = 30;
+  const strokeWidth = strokeWidt || 30; // Default stroke width if not provided
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
@@ -51,7 +59,9 @@ const ProgressPie: React.FC<ProgressPieProps> = ({ progress }) => {
           transform={`rotate(-90 ${(svgSize + 40) / 2} ${(svgSize + 40) / 2})`}
         />
       </Svg>
-      <Text style={styles.text}>{`${progress}%`}</Text>
+      <Text
+        style={[styles.text, { fontSize: fontSize || 20 }]}
+      >{`${progress}%`}</Text>
     </View>
   );
 };
@@ -63,7 +73,6 @@ const styles = StyleSheet.create({
   },
   text: {
     position: "absolute",
-    fontSize: 28,
     fontWeight: "bold",
     color: Colors.light.text,
   },
