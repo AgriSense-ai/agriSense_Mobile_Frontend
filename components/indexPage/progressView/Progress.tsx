@@ -30,9 +30,9 @@ const ProgressPie: React.FC<ProgressPieProps> = ({
         width={svgSize + 40}
         style={{
           padding: 20,
-          shadowColor: "#000",
+          shadowColor: Colors.light.text,
           shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.5,
+          shadowOpacity: 0.3,
           shadowRadius: 6,
           elevation: 5, // For Android shadow
           borderRadius: 11,
@@ -45,6 +45,12 @@ const ProgressPie: React.FC<ProgressPieProps> = ({
           stroke="#e6e6e6"
           strokeWidth={strokeWidth}
           fill="none"
+          strokeDasharray={`${circumference} ${circumference}`}
+          strokeDashoffset={0}
+          strokeLinecap="round"
+          transform={`rotate(-90 ${(svgSize + 40) / 2} ${(svgSize + 40) / 2})`}
+          opacity={0.2}
+          // This is the background circle
         />
         <Circle
           r={radius}

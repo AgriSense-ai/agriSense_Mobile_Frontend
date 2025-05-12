@@ -1,5 +1,5 @@
 import { StyleSheet, View, ImageBackground } from "react-native";
-import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
+import GardenLayout from "@/components/gardenManagement/GardenLayout"
 import NavBarLayout from "@/components/navBar/navBarLayout";
 import ProgressCard from "@/components/gardenManagement/progressCard";
 import { Colors } from "@/constants/Colors";
@@ -43,6 +43,7 @@ export default function HomeScreen() {
           }}
         >
           <ProgressCard />
+          <GardenLayout />
         </View>
       </View>
     </ImageBackground>
