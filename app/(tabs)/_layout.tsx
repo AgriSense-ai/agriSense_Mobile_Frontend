@@ -7,6 +7,7 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { View } from "react-native";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -19,13 +20,16 @@ export default function TabLayout() {
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: "absolute",
-          },
-          default: {},
-        }),
+        tabBarStyle: [
+          Platform.select({
+            ios: {
+              // Use a transparent background on iOS to show the blur effect
+              position: "absolute",
+            },
+            default: {},
+          }),
+          styles.tabBar,
+        ],
       }}
     >
       <Tabs.Screen
@@ -77,11 +81,12 @@ export default function TabLayout() {
 }
 const styles = StyleSheet.create({
   tabBar: {
-    height: 70,
-    width: "80%",
-    alignSelf: "center",
+    height: 60,
+    bottom: 20,
+    width: "90%",
+    marginRight: "5%",
+    marginLeft: "5%",
     position: "absolute",
-    bottom: 0,
     borderRadius: 22,
     overflow: "hidden",
     shadowColor: "#000",
@@ -94,5 +99,5 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderTopLeftRadius: 22,
     borderTopRightRadius: 22,
-  },
+  }, // TODO: Add styles for the tab bar work on increasing size
 });
