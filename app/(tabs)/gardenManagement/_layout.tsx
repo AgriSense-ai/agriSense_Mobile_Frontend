@@ -1,9 +1,5 @@
-import BaseLayout from "../../(tabs)/_layout";
+import { Stack } from "expo-router";
 
-export default function GardenManagementLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <BaseLayout></BaseLayout>;
+export default function TabLayout() {
+  return <Stack />;
 }

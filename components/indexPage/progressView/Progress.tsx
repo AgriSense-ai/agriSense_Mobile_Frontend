@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
   },
   text: {
     position: "absolute",
-    fontSize: 12,
-    fontWeight: "light",
+    fontSize: 28,
+    fontWeight: "bold",
     color: Colors.light.text,
   },
 });
