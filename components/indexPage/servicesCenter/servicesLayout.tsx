@@ -9,10 +9,12 @@ const Services = [
   {
     label: "Garden Management",
     image: gardenManagementImage,
+    route: "/explore",
   },
   {
     label: "Garden Resources",
     image: gardenResourcesImage,
+    route: "/explore",
   },
 ];
 
@@ -35,7 +37,7 @@ function ServicesLayout() {
             key={index}
             label={service.label}
             image={service.image}
-            onPress={() => console.log(`${service.label} pressed`)}
+            route={service.route}
           />
         ))}
       </View>

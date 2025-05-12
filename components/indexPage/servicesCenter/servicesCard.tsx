@@ -1,26 +1,35 @@
 import React from "react";
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 
 interface CardProps {
   image: any;
-  onPress?: () => void;
   label: string;
+  route?: string;
 }
+import { useRouter } from "expo-router";
 
-function introCard({ label, image }: CardProps) {
+
+function introCard({ label, image, route }: CardProps) {
+  const router = useRouter();
   return (
-    <View style={styles.cardContainer}>
-      <Image source={image} style={styles.cardImage} />
-      <View
-        style={{
-          paddingTop: 10,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Text style={{ fontSize: 16, fontWeight: "bold", textAlign: "center" }}>{label}</Text>
+    <TouchableOpacity onPress={() => (route ? router.push(route as any) : null)}>
+      <View style={styles.cardContainer}>
+        <Image source={image} style={styles.cardImage} />
+        <View
+          style={{
+            paddingTop: 10,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{ fontSize: 16, fontWeight: "bold", textAlign: "center" }}
+          >
+            {label}
+          </Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
