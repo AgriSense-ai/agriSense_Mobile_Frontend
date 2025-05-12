@@ -8,11 +8,13 @@ interface CardProps {
 }
 import { useRouter } from "expo-router";
 
-
 function introCard({ label, image, route }: CardProps) {
   const router = useRouter();
   return (
-    <TouchableOpacity onPress={() => (route ? router.push(route as any) : null)}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={() => (route ? router.push(route as any) : null)}
+    >
       <View style={styles.cardContainer}>
         <Image source={image} style={styles.cardImage} />
         <View

@@ -9,7 +9,7 @@ const Services = [
   {
     label: "Garden Management",
     image: gardenManagementImage,
-    route: "/explore",
+    route: "/(tabs)/gardenManagement",
   },
   {
     label: "Garden Resources",
