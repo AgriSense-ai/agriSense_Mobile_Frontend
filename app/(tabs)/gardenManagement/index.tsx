@@ -1,7 +1,8 @@
 import { StyleSheet, View, ImageBackground } from "react-native";
-import GardenLayout from "@/components/gardenManagement/GardenLayout"
+import GardenLayout from "@/components/gardenManagement/GardenLayout";
 import NavBarLayout from "@/components/navBar/navBarLayout";
 import ProgressCard from "@/components/gardenManagement/progressCard";
+import AddGardenButton from "@/components/gardenManagement/AddGardenButton";
 import { Colors } from "@/constants/Colors";
 
 const backgroundImage = require("@/assets/images/Background.png");
@@ -44,6 +45,7 @@ export default function HomeScreen() {
         >
           <ProgressCard />
           <GardenLayout />
+          <AddGardenButton count={3} />
         </View>
       </View>
     </ImageBackground>
