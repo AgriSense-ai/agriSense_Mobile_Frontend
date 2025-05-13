@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "../ThemedText";
 import GardenCard from "./GardenCard";
 
-const Gardens = [
+export const Gardens = [
   {
     title: "Rose Garden",
     crop: "Roses",

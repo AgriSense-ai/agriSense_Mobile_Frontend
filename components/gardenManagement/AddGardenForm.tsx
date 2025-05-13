@@ -1,0 +1,162 @@
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+} from "react-native";
+
+export default function AddGardenForm() {
+  const [gardenName, setGardenName] = useState("");
+  const [cropName, setCropName] = useState("");
+  const [description, setDescription] = useState("");
+
+  return (
+    <View style={styles.root}>
+      <View style={styles.card}>
+        <Text style={styles.title}>Add Garden</Text>
+        <View style={styles.row}>
+          <TextInput
+            style={[styles.input, { marginRight: 10 }]}
+            placeholder="Garden Name"
+            placeholderTextColor="#3A5542"
+            value={gardenName}
+            onChangeText={setGardenName}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Crop Name"
+            placeholderTextColor="#3A5542"
+            value={cropName}
+            onChangeText={setCropName}
+          />
+        </View>
+        <TextInput
+          style={styles.textarea}
+          placeholder="Please write a brief description of what is in the garden"
+          placeholderTextColor="#3A5542"
+          value={description}
+          onChangeText={setDescription}
+          multiline
+          numberOfLines={4}
+          textAlignVertical="top"
+        />
+        <View style={styles.buttonRow}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => console.log("Back")}
+          >
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.continueButton}
+            onPress={() => console.log("Continue")}
+          >
+            <Text style={styles.continueButtonText}>Continue</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const SHADOW =
+  Platform.OS === "ios"
+    ? {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+      }
+    : {
+        elevation: 16,
+      };
+
+const styles = StyleSheet.create({
+  root: {
+    position: "absolute",
+    alignSelf: "center",
+    marginTop: '60%',
+    padding: 20,
+    borderRadius: 22,
+  },
+  card: {
+    backgroundColor: "#fff",
+    padding: 28,
+    borderRadius: 22,
+    width: 340,
+    alignItems: "center",
+    ...SHADOW,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "600",
+    marginBottom: 28,
+    color: "#234733",
+    fontFamily: Platform.select({ ios: "System", android: "sans-serif" }),
+  },
+  row: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    marginBottom: 16,
+  },
+  input: {
+    backgroundColor: "#D3EDE0",
+    borderRadius: 12,
+    width: "100%",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    fontSize: 16,
+    color: "#234733",
+    flex: 1,
+  },
+  textarea: {
+    backgroundColor: "#D3EDE0",
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingTop: 14,
+    fontSize: 16,
+    color: "#234733",
+    width: "100%",
+    minHeight: 90,
+    marginBottom: 28,
+  },
+  buttonRow: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
+    marginTop: 12,
+  },
+  backButton: {
+    flex: 1,
+    borderWidth: 2,
+    borderColor: "#234733",
+    borderRadius: 8,
+    paddingVertical: 12,
+    marginRight: 10,
+    backgroundColor: "#fff",
+    alignItems: "center",
+  },
+  backButtonText: {
+    color: "#234733",
+    fontSize: 18,
+    fontWeight: "500",
+  },
+  continueButton: {
+    flex: 1,
+    backgroundColor: "#234733",
+    borderRadius: 8,
+    paddingVertical: 12,
+    alignItems: "center",
+    marginLeft: 10,
+  },
+  continueButtonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "500",
+  },
+});

@@ -4,6 +4,7 @@ import NavBarLayout from "@/components/navBar/navBarLayout";
 import ProgressCard from "@/components/gardenManagement/progressCard";
 import AddGardenButton from "@/components/gardenManagement/AddGardenButton";
 import { Colors } from "@/constants/Colors";
+import { Gardens } from "@/components/gardenManagement/GardenLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 
@@ -45,7 +46,7 @@ export default function HomeScreen() {
         >
           <ProgressCard />
           <GardenLayout />
-          <AddGardenButton count={3} />
+          <AddGardenButton count={Gardens.length} />
         </View>
       </View>
     </ImageBackground>
