@@ -1,18 +1,42 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
+import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 
 interface AddGardenNavigationButtonProps {
   type: "back" | "continue";
+  route?: string;
+  onPress?: () => void;
 }
 
 const AddGardenNavigationButton = ({
   type,
+  route,
 }: AddGardenNavigationButtonProps) => {
+  const router = useRouter();
+  const navigation = useNavigation();
+  const handlePress = () => {
+    if (type === "back") {
+      navigation.goBack();
+      console.log("Back button pressed");
+    } else {
+      console.error("Button not functioning");
+    }
+  };
+  const handleContinue = () => {
+    if (type === "continue") {
+      route
+        ? (router.push(route as any), console.log("Back button pressed"))
+        : console.warn("No route provided");
+    } else {
+      console.error("Button not functioning correctly");
+    }
+  }; // Added missing closing brace here
   return (
     <TouchableOpacity
       style={type === "continue" ? styles.continueButton : styles.backButton}
       activeOpacity={0.7}
-      onPress={() => console.log(type === "continue" ? "Continue" : "Back")}
+      onPress={type === "continue" ? handleContinue : handlePress}
     >
       <Text
         style={

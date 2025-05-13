@@ -14,6 +14,8 @@ export default function AddGardenForm() {
   const [cropName, setCropName] = useState("");
   const [description, setDescription] = useState("");
 
+  var addGardenRoute: string = "(tabs)/gardenManagement/addGardenMaps";
+
   return (
     <View style={styles.root}>
       <View style={styles.card}>
@@ -46,7 +48,7 @@ export default function AddGardenForm() {
         />
         <View style={styles.buttonRow}>
           <AddGardenNavigationButton type={"back"} />
-          <AddGardenNavigationButton type={"continue"} />
+          <AddGardenNavigationButton type={"continue"} route={addGardenRoute} />
         </View>
       </View>
     </View>
@@ -97,6 +99,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#D3EDE0",
     borderRadius: 12,
+    fontWeight: "500",
     width: "100%",
     paddingHorizontal: 16,
     paddingVertical: 10,
@@ -110,7 +113,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 14,
     fontSize: 16,
-    color: "#234733",
+    color: "E8EAED",
     width: "100%",
     minHeight: 90,
     marginBottom: 28,
@@ -120,20 +123,5 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     marginTop: 12,
-  },
-  backButton: {
-    flex: 1,
-    borderWidth: 2,
-    borderColor: "#234733",
-    borderRadius: 8,
-    paddingVertical: 12,
-    marginRight: 10,
-    backgroundColor: "#fff",
-    alignItems: "center",
-  },
-  backButtonText: {
-    color: "#234733",
-    fontSize: 18,
-    fontWeight: "500",
   },
 });
