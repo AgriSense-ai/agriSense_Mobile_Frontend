@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Platform,
 } from "react-native";
+import AddGardenNavigationButton from "./AddGardenNavigationButton";
 
 export default function AddGardenForm() {
   const [gardenName, setGardenName] = useState("");
@@ -44,18 +45,8 @@ export default function AddGardenForm() {
           textAlignVertical="top"
         />
         <View style={styles.buttonRow}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => console.log("Back")}
-          >
-            <Text style={styles.backButtonText}>Back</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.continueButton}
-            onPress={() => console.log("Continue")}
-          >
-            <Text style={styles.continueButtonText}>Continue</Text>
-          </TouchableOpacity>
+          <AddGardenNavigationButton type={"back"} />
+          <AddGardenNavigationButton type={"continue"} />
         </View>
       </View>
     </View>
@@ -79,7 +70,6 @@ const styles = StyleSheet.create({
   root: {
     position: "absolute",
     alignSelf: "center",
-    marginTop: '60%',
     padding: 20,
     borderRadius: 22,
   },
@@ -143,19 +133,6 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     color: "#234733",
-    fontSize: 18,
-    fontWeight: "500",
-  },
-  continueButton: {
-    flex: 1,
-    backgroundColor: "#234733",
-    borderRadius: 8,
-    paddingVertical: 12,
-    alignItems: "center",
-    marginLeft: 10,
-  },
-  continueButtonText: {
-    color: "#fff",
     fontSize: 18,
     fontWeight: "500",
   },
