@@ -26,7 +26,7 @@ const AddGardenNavigationButton = ({
   const handleContinue = () => {
     if (type === "continue") {
       route
-        ? (router.push(route as any), console.log("Back button pressed"))
+        ? (router.push(route as any), console.log("Continue button pressed"))
         : console.warn("No route provided");
     } else {
       console.error("Button not functioning correctly");

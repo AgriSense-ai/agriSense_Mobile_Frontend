@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
   StyleSheet,
   Platform,
 } from "react-native";
@@ -14,7 +13,7 @@ export default function AddGardenForm() {
   const [cropName, setCropName] = useState("");
   const [description, setDescription] = useState("");
 
-  var addGardenRoute: string = "(tabs)/gardenManagement/addGardenMaps";
+  var addGardenRoute: string = "(tabs)/gardenManagement/addGardenMap";
 
   return (
     <View style={styles.root}>
