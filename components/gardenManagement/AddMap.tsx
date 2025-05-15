@@ -12,3 +12,4 @@ const AddMap = () => {
 export default AddMap;
 
 const styles = StyleSheet.create({});
+  
