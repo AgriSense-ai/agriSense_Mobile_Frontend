@@ -14,7 +14,7 @@ const Services = [
   {
     label: "Garden Resources",
     image: gardenResourcesImage,
-    route: "/explore",
+    route: "/(tabs)/gardenResources",
   },
 ];
 

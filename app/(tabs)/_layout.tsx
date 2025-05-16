@@ -76,6 +76,13 @@ export default function TabLayout() {
           title: "Garden Management",
         }}
       />
+      <Tabs.Screen
+        name="gardenResources"
+        options={{
+          href: null,
+          title: "Garden Resources",
+        }}
+      />
     </Tabs>
   );
 }
