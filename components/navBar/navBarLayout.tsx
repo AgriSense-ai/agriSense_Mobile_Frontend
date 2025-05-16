@@ -1,12 +1,34 @@
-import { View, Image, StyleSheet } from "react-native";
+import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
 import ProfilePlaceHolder from "./ProfilePlaceHolder";
+import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 
 const logoImage = require("@/assets/images/Logo/icon.png");
+const backImage = require("@/assets/images/SVGs/PlantIntro.png");
 
 function navBarLayout() {
+  const router = useRouter();
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    // Example: check if navigation can go back
+    if (navigation.canGoBack && navigation.canGoBack()) {
+      navigation.goBack();
+      console.log("Back button pressed");
+    } else {
+      console.error("Button not functioning");
+    }
+  };
   return (
     <View>
       <View style={styles.layoutContainer}>
+        <TouchableOpacity onPress={handlePress}>
+          <Image
+            source={backImage}
+            style={{ width: 24, height: 24 }}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
         <Image source={logoImage} style={styles.ImageContainer}></Image>
         <ProfilePlaceHolder />
       </View>
