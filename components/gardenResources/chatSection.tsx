@@ -1,3 +1,4 @@
+import { Colors } from "@/constants/Colors";
 import React, { useState } from "react";
 import {
   View,
@@ -9,7 +10,9 @@ import {
 } from "react-native";
 
 const ChatSection = () => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(
+    "Hello, My coffee has black spots any recommendations"
+  );
 
   return (
     <View style={styles.root}>
@@ -38,10 +41,13 @@ export default ChatSection;
 const SHADOW =
   Platform.OS === "ios"
     ? {
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 6 },
-        shadowOpacity: 0.12,
-        shadowRadius: 1,
+        shadowColor: Colors.light.text,
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.6,
+        shadowRadius: 7,
+        ShadowRoot: {
+          backgroundColor: Colors.light.background,
+        },
       }
     : {
         elevation: 8,
@@ -49,18 +55,17 @@ const SHADOW =
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
-    justifyContent: "center",
+    marginTop: 20,
     alignItems: "center", // For preview; adjust/remove for integration
   },
   card: {
     backgroundColor: "#fff",
     borderRadius: 10,
-    height: "20%",
+    height: 150,
+    width: "90%",
     padding: 14,
     flexDirection: "row",
     alignItems: "flex-end",
-    width: 320,
     ...SHADOW,
   },
   input: {

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "../ThemedText";
+import { Colors } from "@/constants/Colors";
 
 const IntroSection = () => {
   return (
@@ -18,20 +19,19 @@ export default IntroSection;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
+    paddingTop:'5%',
     alignItems: "flex-start",
+    width: '90%'
   },
   textTitle: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#000",
+    color: Colors.light.text,
     marginBottom: 10,
   },
   textContent: {
     fontSize: 16,
     fontWeight: "normal",
-    color: "#000",
-    paddingHorizontal: 20,
+    color: Colors.light.text,
   },
 });

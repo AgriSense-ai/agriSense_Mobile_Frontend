@@ -1,8 +1,7 @@
 import { StyleSheet, View, ImageBackground } from "react-native";
 import NavBarLayout from "@/components/navBar/navBarLayout";
 import { Colors } from "@/constants/Colors";
-import IntroSection from "@/components/gardenResources/IntroSection";
-import ChatSection from "@/components/gardenResources/chatSection";
+import GardenResorecesLayout from "@/components/gardenResources/GardenResorecesLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 
@@ -18,7 +17,7 @@ export default function ResourceScreen() {
         backgroundColor: Colors.light.background,
       }}
       imageStyle={{
-        opacity: 0.2,
+        opacity: 0.05,
         position: "absolute",
         width: "100%",
         height: "100%",
@@ -42,7 +41,7 @@ export default function ResourceScreen() {
             marginTop: 10,
           }}
         >
-          <ChatSection />
+          <GardenResorecesLayout />
         </View>
       </View>
     </ImageBackground>
