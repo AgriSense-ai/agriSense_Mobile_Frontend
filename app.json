@@ -4,7 +4,7 @@
     "slug": "AgriSense",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo/icon.png",
+    "icon": "./assets/images/Logo/icon.png",
     "scheme": "AgriSense",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,10 +13,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo/1.png",
+        "foregroundImage": "./assets/images/Logo/1.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "config": {
+        "googleMapsApiKey": "${process.env.GOOGLE_MAPS_API_KEY}"
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "package": "com.conradkash.AgriSense"
     },
     "web": {
       "bundler": "metro",
@@ -33,10 +41,23 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-maps",
+        {
+          "requestLocationPermission": "true",
+          "locationPermission": "Allow $(PRODUCT_NAME) to use your location"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "677e81e9-5c63-4061-9517-0b3a58fe22d5"
+      }
     }
   }
 }

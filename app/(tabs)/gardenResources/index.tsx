@@ -1,7 +1,7 @@
 import { StyleSheet, View, ImageBackground } from "react-native";
 import NavBarLayout from "@/components/navBar/navBarLayout";
 import { Colors } from "@/constants/Colors";
-import GardenResorecesLayout from "@/components/gardenResources/GardenResorecesLayout";
+import GardenResorecesLayout from "@/components/gardenResources/gardenResorecesLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 

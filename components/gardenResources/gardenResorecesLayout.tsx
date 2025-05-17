@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import IntroSection from "./IntroSection";
-import ChatSection from "./ChatSection";
+import ChatSection from "./chatSection";
 import AvailableCrops from "./AvailableCrops";
 
 const GardenResorecesLayout = () => {
