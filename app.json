@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.conradkash.AgriSense"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,7 +19,7 @@
       },
       "edgeToEdgeEnabled": true,
       "config": {
-        "googleMapsApiKey": "${process.env.GOOGLE_MAPS_API_KEY}"
+        "googleMapsApiKey": "AIzaSyDQhzz6DLMlEzo1HROkwWaznvPxTMxQDhs"
       },
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",

@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  Platform,
-} from "react-native";
+import { View, Text, TextInput, StyleSheet, Platform } from "react-native";
 import AddGardenNavigationButton from "./AddGardenNavigationButton";
 
 export default function AddGardenForm() {
@@ -13,7 +7,7 @@ export default function AddGardenForm() {
   const [cropName, setCropName] = useState("");
   const [description, setDescription] = useState("");
 
-  var addGardenRoute: string = "(tabs)/gardenManagement/addGardenMap";
+  const addGardenRoute: string = "(tabs)/gardenManagement/Map";
 
   return (
     <View style={styles.root}>
