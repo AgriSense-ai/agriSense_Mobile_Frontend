@@ -4,6 +4,7 @@ import {
   Platform,
   View,
   Text,
+  StyleSheet,
 } from "react-native";
 // This is a simple example of how to use Platform-specific components
 interface MyButtonProps {
@@ -27,10 +28,10 @@ function MyButton({ onPress, title }: MyButtonProps) {
     </Touchable>
   );
 }
-const styles = {
+const styles = StyleSheet.create({
   button: {
     padding: 10,
     backgroundColor: "blue",
     borderRadius: 5,
   },
-};
+});

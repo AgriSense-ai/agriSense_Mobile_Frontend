@@ -3,7 +3,7 @@ import ProfilePlaceHolder from "./ProfilePlaceHolder";
 import { useRouter } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
 
-const logoImage = require("@/assets/images/Logo/icon.png");
+const logoImage = require("@/assets/images/Logo/typoLogo.png");
 const backImage = require("@/assets/images/SVGs/PlantIntro.png");
 
 function navBarLayout() {
@@ -23,11 +23,7 @@ function navBarLayout() {
     <View>
       <View style={styles.layoutContainer}>
         <TouchableOpacity onPress={handlePress}>
-          <Image
-            source={backImage}
-            style={{ width: 24, height: 24 }}
-            resizeMode="contain"
-          />
+       {/* TODO : Create the SVG */}
         </TouchableOpacity>
         <Image source={logoImage} style={styles.ImageContainer}></Image>
         <ProfilePlaceHolder />
@@ -38,15 +34,9 @@ function navBarLayout() {
 
 const styles = StyleSheet.create({
   ImageContainer: {
-    width: 50,
+    width: 100,
     height: 50,
-    aspectRatio: 1,
-    marginLeft: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    marginLeft: 10
   },
   layoutContainer: {
     flexDirection: "row",
