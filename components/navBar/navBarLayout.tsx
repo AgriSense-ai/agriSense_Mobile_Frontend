@@ -1,14 +1,18 @@
-import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, Image, StyleSheet, Pressable } from "react-native";
 import ProfilePlaceHolder from "./ProfilePlaceHolder";
-import { useRouter } from "expo-router";
+import { useRouter, usePathname } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
+import { IconSymbol } from "@/components/ui/IconSymbol";
+import { Colors } from "@/constants/Colors";
 
 const logoImage = require("@/assets/images/Logo/typoLogo.png");
 const backImage = require("@/assets/images/SVGs/PlantIntro.png");
+const color = Colors.light.tint;
 
 function navBarLayout() {
   const router = useRouter();
   const navigation = useNavigation();
+  const pathname = usePathname();
 
   const handlePress = () => {
     // Example: check if navigation can go back
@@ -19,14 +23,30 @@ function navBarLayout() {
       console.error("Button not functioning");
     }
   };
+
+  const handlePressLogo = () => {
+    router.push("/profile");
+    console.log("Logo pressed");
+  };
+
   return (
     <View>
       <View style={styles.layoutContainer}>
-        <TouchableOpacity onPress={handlePress}>
-       {/* TODO : Create the SVG */}
-        </TouchableOpacity>
+        {pathname !== "/" ? (
+          <Pressable onPress={handlePress}>
+            <IconSymbol
+              size={28}
+              weight="bold"
+              name="chevron.left"
+              color={color}
+            />
+          </Pressable>
+        ) : null}
         <Image source={logoImage} style={styles.ImageContainer}></Image>
-        <ProfilePlaceHolder />
+
+        <Pressable onPress={handlePressLogo}>
+          <ProfilePlaceHolder />
+        </Pressable>
       </View>
     </View>
   );
@@ -36,16 +56,17 @@ const styles = StyleSheet.create({
   ImageContainer: {
     width: 100,
     height: 50,
-    marginLeft: 10
+    marginLeft: 10,
   },
   layoutContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     padding: 10,
-    width: 380,
+    width: "90%",
     height: 50,
     backgroundColor: "transarent",
   },
 });
+
 export default navBarLayout;

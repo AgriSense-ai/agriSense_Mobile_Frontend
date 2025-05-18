@@ -13,7 +13,7 @@ interface MyButtonProps {
 }
 
 // A button that feels right on both platforms
-function MyButton({ onPress, title }: MyButtonProps) {
+export default function MyButton({ onPress, title }: MyButtonProps) {
   // Use TouchableNativeFeedback on Android for the ripple effect
   // Use TouchableOpacity on iOS for the opacity effect
   // Use Material ripple effect on Android, opacity on iOS
