@@ -20,7 +20,7 @@ const ProfilePlaceHolder = () => {
           width: 50,
           height: 50,
           aspectRatio: 1,
-          borderRadius: '50%',
+          borderRadius: 30,
         }}
       ></Image>
     </View>
