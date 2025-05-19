@@ -5,6 +5,8 @@ import * as Location from "expo-location";
 import { MaterialIcons } from "@expo/vector-icons";
 import AddGardenNavigationButton from "./AddGardenNavigationButton";
 
+import { Coordinates } from "../../constants/data/Coordinates"
+
 type BackgroundLayoutProps = ViewProps & {
   children?: React.ReactNode;
 };
@@ -12,7 +14,6 @@ type BackgroundLayoutProps = ViewProps & {
 export default function AddGardenMap({
   children,
   style,
-
   ...rest
 }: BackgroundLayoutProps) {
   type Coordinate = {
@@ -53,6 +54,8 @@ export default function AddGardenMap({
       latitudeDelta: 0.005,
       longitudeDelta: 0.005,
     });
+    console.log("Location: ", location);
+
     storeCoordinate(location.coords.latitude, location.coords.longitude);
     console.log("Location: ", location);
     console.log("Coordinates: ", coordinates);
@@ -100,6 +103,14 @@ export default function AddGardenMap({
         >
           {children}
         </View>
+        <Polygon
+          coordinates={Coordinates}
+          fillColor={"rgba(255, 0, 0, 0.5)"}
+          strokeColor={"rgba(255, 0, 0, 0.5)"}
+          strokeWidth={2}
+          tappable={true}
+        />
+
         <Marker
           coordinate={location}
           title={"My Location"}
