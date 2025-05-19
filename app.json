@@ -19,7 +19,7 @@
       },
       "edgeToEdgeEnabled": true,
       "config": {
-        "googleMapsApiKey": "AIzaSyDQhzz6DLMlEzo1HROkwWaznvPxTMxQDhs"
+        "googleMapsApiKey": "process.env.GOOGLE_MAPS_API_KEY"
       },
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
