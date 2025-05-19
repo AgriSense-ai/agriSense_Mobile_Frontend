@@ -15,6 +15,24 @@ export default function AddGardenMap({
 
   ...rest
 }: BackgroundLayoutProps) {
+  type Coordinate = {
+    id: string;
+    latitude: number;
+    longitude: number;
+  };
+
+  const [coordinates, setCoordinates] = useState<Coordinate[]>([]);
+
+  const storeCoordinate = (latitude: number, longitude: number) => {
+    setCoordinates((prev) => [
+      ...prev,
+      {
+        id: `${Date.now()}-${Math.random()}`,
+        latitude,
+        longitude,
+      },
+    ]);
+  };
   const [location, setLocation] = useState({
     latitude: 0,
     longitude: 0,
@@ -35,7 +53,9 @@ export default function AddGardenMap({
       latitudeDelta: 0.005,
       longitudeDelta: 0.005,
     });
+    storeCoordinate(location.coords.latitude, location.coords.longitude);
     console.log("Location: ", location);
+    console.log("Coordinates: ", coordinates);
     return location;
   };
 
