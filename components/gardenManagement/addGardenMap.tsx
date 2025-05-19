@@ -5,7 +5,9 @@ import * as Location from "expo-location";
 import { MaterialIcons } from "@expo/vector-icons";
 import AddGardenNavigationButton from "./AddGardenNavigationButton";
 
-import { Coordinates } from "../../constants/data/Coordinates"
+import { Coordinates } from "../../constants/data/Coordinates";
+
+const addGardenSettingsRoute: string = "(tabs)/gardenManagement/gardenSettings";
 
 type BackgroundLayoutProps = ViewProps & {
   children?: React.ReactNode;
@@ -70,11 +72,16 @@ export default function AddGardenMap({
   return (
     <View {...rest} style={[styles.root, style]}>
       <View style={styles.buttonRow}>
-        <AddGardenNavigationButton type="back" />
+        <AddGardenNavigationButton type="Back" />
         <AddGardenNavigationButton
-          type="continue"
+          type="Continue"
           name="Mark"
           onPress={userLocation}
+        />
+        <AddGardenNavigationButton
+          type="Continue"
+          name="Save"
+          route={addGardenSettingsRoute}
         />
       </View>
       <MapView

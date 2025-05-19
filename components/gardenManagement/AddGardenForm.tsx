@@ -40,8 +40,8 @@ export default function AddGardenForm() {
           textAlignVertical="top"
         />
         <View style={styles.buttonRow}>
-          <AddGardenNavigationButton type={"back"} />
-          <AddGardenNavigationButton type={"continue"} route={addGardenRoute} />
+          <AddGardenNavigationButton type={"Back"} />
+          <AddGardenNavigationButton type={"Continue"} route={addGardenRoute} />
         </View>
       </View>
     </View>
