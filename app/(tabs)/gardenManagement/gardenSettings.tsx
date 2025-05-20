@@ -1,22 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import GardenSettingsLayout from '@/components/gardenManagement/GardenSettings/GardenSettingsLayout'
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import GardenSettingsLayout from "@/components/gardenManagement/GardenSettings/GardenSettingsLayout";
+import BackgroundLayout from "@/components/ui/BackgroundLayout";
 
 const gardenSettings = () => {
   return (
-    <View style={styles.root}>
-        <GardenSettingsLayout />
-    </View>
-  )
-}
+    <BackgroundLayout>
+      <GardenSettingsLayout />
+    </BackgroundLayout>
+  );
+};
 
-export default gardenSettings
+export default gardenSettings;
 
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-        backgroundColor: '#F6F6F6',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-})

@@ -1,12 +1,25 @@
 import { StyleSheet, View, Text, Platform } from "react-native";
-import ToggleButton from "./ToggleButton";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
+import SetttingRow from "./SetttingRow";
+import { GardenProfile } from "../../../constants/data/GardenProfile";
+import SettingsMap from "./SettingsMap";
+import AddGardenMap from "../addGardenMap";
 
 const GardenSettingsLayout = () => {
   return (
-    <BackgroundLayout>
-      <ToggleButton />
-    </BackgroundLayout>
+    <View style={styles.card}>
+      <SetttingRow label="Active" value={GardenProfile.active} />
+      <SetttingRow label="Crop Name" value={GardenProfile.crop} />
+      <SetttingRow label="Progress" value={GardenProfile.progress + `%`} />
+      <SetttingRow label="Area" value={GardenProfile.area + ` Acres`} />
+      <SetttingRow
+        label="Crops Remaining"
+        value={GardenProfile.cropsRemaining + ` Crops`}
+      />
+      <View style={styles.mapContainer}>
+        <SettingsMap coordinates={GardenProfile.coordinates} />
+      </View>
+    </View>
   );
 };
 const SHADOW =
@@ -25,10 +38,19 @@ export default GardenSettingsLayout;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#fff",
+    marginTop: 20,
+    backgroundColor: "#ffff",
     padding: 28,
     borderRadius: 22,
-    width: 340,
+    width: 350,
     ...SHADOW,
+  },
+  mapContainer: {
+    marginTop: 15,
+    marginBottom: 20,
+    height: 200,
+    width: "100%",
+    borderRadius: 10,
+    overflow: "hidden",
   },
 });
