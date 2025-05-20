@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 interface FloatingGardensProps {
   count: number;
 }
-var addGardenRoute: string = "(tabs)/gardenManagement/addGarden";
+let addGardenRoute: string = "(tabs)/gardenManagement/addGarden";
 
 function AddGardenButton({ count }: FloatingGardensProps) {
     const router = useRouter();

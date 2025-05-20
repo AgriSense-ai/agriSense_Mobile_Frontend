@@ -1,10 +1,9 @@
 import { StyleSheet, View, ImageBackground } from "react-native";
-import GardenLayout from "@/components/gardenManagement/GardenLayout";
+import GardenLayout, { Gardens } from "@/components/gardenManagement/GardenLayout";
 import NavBarLayout from "@/components/navBar/navBarLayout";
 import ProgressCard from "@/components/gardenManagement/progressCard";
 import AddGardenButton from "@/components/gardenManagement/AddGardenButton";
 import { Colors } from "@/constants/Colors";
-import { Gardens } from "@/components/gardenManagement/GardenLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 

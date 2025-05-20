@@ -1,9 +1,9 @@
 import { StyleSheet, View, ImageBackground, ViewProps } from "react-native";
-const backgroundImage = require("@/assets/images/Background.png");
 import { Colors } from "../../constants/Colors";
 import NavBarLayout from "@/components/navBar/navBarLayout";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+const backgroundImage = require("@/assets/images/Background.png");
 
 type BackgroundLayoutProps = ViewProps & {
   children?: React.ReactNode;

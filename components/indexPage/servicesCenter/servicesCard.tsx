@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
 interface CardProps {
   image: any;
   label: string;
   route?: string;
 }
-import { useRouter } from "expo-router";
 
 function introCard({ label, image, route }: CardProps) {
   const router = useRouter();
