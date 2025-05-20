@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import SettingDivider from "./SettingDivider";
 import ToggleButton from "./ToggleButton";
+import NavIcon from "@/components/ui/NavIcon";
 ToggleButton;
 
 interface SettingRowProps {
@@ -16,6 +17,8 @@ const SetttingRow = ({ label, value }: SettingRowProps) => {
         <Text style={styles.label}>{label}</Text>
         {label === "Active" ? (
           <ToggleButton status={typeof value === "boolean" ? value : false} />
+        ) : label === "Zone Management" ? (
+          <NavIcon />
         ) : (
           <Text style={styles.value}>{value}</Text>
         )}

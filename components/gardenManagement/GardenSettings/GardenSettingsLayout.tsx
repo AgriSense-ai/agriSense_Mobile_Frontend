@@ -2,10 +2,12 @@ import { StyleSheet, View, Text, Platform } from "react-native";
 import SetttingRow from "./SetttingRow";
 import { GardenProfile } from "../../../constants/data/GardenProfile";
 import SettingsMap from "./SettingsMap";
+import { Colors } from "@/constants/Colors";
 
 const GardenSettingsLayout = () => {
   return (
     <View style={styles.card}>
+      <Text style={styles.title}>{GardenProfile.name}</Text>
       <SetttingRow label="Active" value={GardenProfile.active} />
       <SetttingRow label="Crop Name" value={GardenProfile.crop} />
       <SetttingRow label="Progress" value={GardenProfile.progress + `%`} />
@@ -14,6 +16,7 @@ const GardenSettingsLayout = () => {
         label="Crops Remaining"
         value={GardenProfile.cropsRemaining + ` Crops`}
       />
+      <SetttingRow label="Zone Management" value={GardenProfile.area + ` Acres`} />
       <View style={styles.mapContainer}>
         <SettingsMap coordinates={GardenProfile.coordinates} />
       </View>
@@ -44,11 +47,15 @@ const styles = StyleSheet.create({
     ...SHADOW,
   },
   mapContainer: {
-    marginTop: 15,
-    marginBottom: 20,
     height: 200,
     width: "100%",
     borderRadius: 10,
     overflow: "hidden",
+  },  title: {
+    fontSize: 28,
+    fontWeight: "600",
+    marginBottom: 10,
+    color: Colors.light.text,
+    textAlign: "center",
   },
 });
