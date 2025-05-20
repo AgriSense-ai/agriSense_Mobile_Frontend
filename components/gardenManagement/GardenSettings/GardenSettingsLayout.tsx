@@ -1,9 +1,7 @@
 import { StyleSheet, View, Text, Platform } from "react-native";
-import BackgroundLayout from "@/components/ui/BackgroundLayout";
 import SetttingRow from "./SetttingRow";
 import { GardenProfile } from "../../../constants/data/GardenProfile";
 import SettingsMap from "./SettingsMap";
-import AddGardenMap from "../addGardenMap";
 
 const GardenSettingsLayout = () => {
   return (

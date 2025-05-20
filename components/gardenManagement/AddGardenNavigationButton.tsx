@@ -3,8 +3,8 @@ import React from "react";
 import { useRouter } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
 
-interface AddGardenNavigationButtonProps {
-  type: "Back" | "Continue";
+export interface AddGardenNavigationButtonProps {
+  type: "Back" | "Continue" | "Save";
   name?: "Clear" | "Mark" | "Save";
   route?: string;
   onPress?: () => void;
@@ -14,7 +14,7 @@ const AddGardenNavigationButton = ({
   type,
   route,
   name,
-  onPress
+  onPress,
 }: AddGardenNavigationButtonProps) => {
   const router = useRouter();
   const navigation = useNavigation();
@@ -27,7 +27,7 @@ const AddGardenNavigationButton = ({
     }
   };
   const handleContinue = () => {
-    if (type === "Continue") {
+    if (type === "Continue" || type === "Save") {
       route
         ? (router.push(route as any), console.log("Continue button pressed"))
         : console.warn("No route provided");
@@ -37,9 +37,21 @@ const AddGardenNavigationButton = ({
   }; // Added missing closing brace here
   return (
     <TouchableOpacity
-      style={type === "Continue" ? styles.continueButton : styles.backButton}
+      style={
+        type === "Continue" || type === "Save"
+          ? styles.continueButton
+          : styles.backButton
+      }
       activeOpacity={0.7}
-      onPress={onPress ? onPress : type === "Continue" ? handleContinue : handlePress}
+      onPress={
+        onPress
+          ? onPress
+          : type === "Continue"
+          ? handleContinue
+          : type === "Back"
+          ? handlePress
+          : undefined
+      }
       onLongPress={() => console.log({ name })}
     >
       <Text
