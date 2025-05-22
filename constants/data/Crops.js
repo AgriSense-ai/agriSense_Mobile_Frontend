@@ -1,4 +1,4 @@
-export const crop = [
+export const Crop = [
   {
     id: 1,
     name: "Wheat",

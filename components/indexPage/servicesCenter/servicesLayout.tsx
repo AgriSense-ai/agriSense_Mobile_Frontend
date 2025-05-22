@@ -1,7 +1,7 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Pressable } from "react-native";
 import IntroCard from "./servicesCard";
 import { ThemedText } from "@/components/ThemedText";
-
+import { useRouter } from "expo-router";
 const gardenManagementImage = require("@/assets/images/SVGs/PlantIntro.png");
 const gardenResourcesImage = require("@/assets/images/SVGs/BookIntro.png");
 
@@ -19,6 +19,15 @@ const Services = [
 ];
 
 function ServicesLayout() {
+  const router = useRouter();
+  const handlePress = (route: string) => {
+    try {
+      route ? router.push(route as any) : null;
+      console.log("Route tapped:", route);
+    } catch (error) {
+      console.error("Error navigating to route:", error);
+    }
+  };
   return (
     <View style={styles.cardContainer}>
       <ThemedText
@@ -33,12 +42,13 @@ function ServicesLayout() {
       </ThemedText>
       <View style={styles.card}>
         {Services.map((service, index) => (
-          <IntroCard
-            key={index}
-            label={service.label}
-            image={service.image}
-            route={service.route}
-          />
+          <Pressable key={index} onPress={() => handlePress(service.route)}>
+            <IntroCard
+              label={service.label}
+              image={service.image}
+              route={service.route}
+            />
+          </Pressable>
         ))}
       </View>
     </View>

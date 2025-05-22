@@ -11,27 +11,20 @@ interface CardProps {
 function introCard({ label, image, route }: CardProps) {
   const router = useRouter();
   return (
-    <TouchableOpacity
-      activeOpacity={0.9}
-      onPress={() => (route ? router.push(route as any) : null)}
-    >
-      <View style={styles.cardContainer}>
-        <Image source={image} style={styles.cardImage} />
-        <View
-          style={{
-            paddingTop: 10,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{ fontSize: 16, fontWeight: "bold", textAlign: "center" }}
-          >
-            {label}
-          </Text>
-        </View>
+    <View style={styles.cardContainer}>
+      <Image source={image} style={styles.cardImage} />
+      <View
+        style={{
+          paddingTop: 10,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Text style={{ fontSize: 16, fontWeight: "bold", textAlign: "center" }}>
+          {label}
+        </Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
