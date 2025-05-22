@@ -140,7 +140,7 @@ import {
     },
     shutterContainer: {
       position: "absolute",
-      bottom: 44,
+      bottom: 100,
       left: 0,
       width: "100%",
       alignItems: "center",

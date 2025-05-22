@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
 interface GardenCardProps {
   title: string;
@@ -8,16 +9,27 @@ interface GardenCardProps {
 }
 
 const GardenCard = ({ title, crop, description, date }: GardenCardProps) => {
+  const router = useRouter();
+  const handlePress = () => {
+    try {
+      router.push("/(tabs)/gardenManagement/gardenSettings");
+      console.log("Navigating to GardenSettings");
+    } catch (error) {
+      console.error("Error navigating to GardenSettings:", error);
+    }
+  };
   return (
     <View style={styles.gardenCard}>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Text style={styles.gardenTitle}>{title}</Text>
-        <Text style={styles.cropName}>  {crop}</Text>
-        <View style={styles.cropDot}/>
+        <Text style={styles.cropName}> {crop}</Text>
+        <View style={styles.cropDot} />
       </View>
       <Text style={styles.gardenDesc}>{description}</Text>
       <Text style={styles.gardenDate}>Date created: {date}</Text>
-      <TouchableOpacity style={styles.continueBtn}><Text style={{ color: '#fff', fontWeight: 'bold' }}>Continue</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.continueBtn} onPress={handlePress}>
+        <Text style={{ color: "#fff", fontWeight: "bold" }}>Continue</Text>
+      </TouchableOpacity>
     </View>
   );
 };

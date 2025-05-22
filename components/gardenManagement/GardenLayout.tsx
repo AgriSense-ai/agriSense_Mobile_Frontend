@@ -1,6 +1,7 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { ThemedText } from "../ThemedText";
 import GardenCard from "./GardenCard";
+import { useRouter } from "expo-router";
 
 export const Gardens = [
   {
