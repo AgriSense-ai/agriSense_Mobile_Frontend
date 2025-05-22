@@ -1,15 +1,18 @@
-import { useLocalSearchParams } from "expo-router"
-import { StyleSheet, Text, View, TextInput } from "react-native"
+import { StyleSheet, Text, View } from 'react-native'
+import { useLocalSearchParams } from 'expo-router'
+import BackgroundLayout from '@/components/ui/BackgroundLayout'
 
-const CropScreen = () => {
-    const { id } = useLocalSearchParams()
+const CropResourceScreen = () => {
+    const { id } = useLocalSearchParams<{ id: string }>()
   return (
-    <View>
-      <Text>{id}</Text>
-    </View>
+    <BackgroundLayout>
+        <View>
+            <Text>CropResourceScreen+ {id}</Text>
+        </View>
+    </BackgroundLayout>
   )
 }
 
-export default CropScreen
+export default CropResourceScreen
 
 const styles = StyleSheet.create({})
