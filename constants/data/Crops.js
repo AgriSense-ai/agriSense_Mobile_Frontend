@@ -2,7 +2,7 @@ export const Crop = [
   {
     id: 1,
     name: "Wheat",
-    image: "../../assets/crops/wheat.jpg",
+    image: require("@/assets/images/crops/maize.jpg"),
     scientificName: "Triticum aestivum",
     family: "Poaceae",
     varieties: [

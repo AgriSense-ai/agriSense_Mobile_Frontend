@@ -9,7 +9,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Crop } from "@/constants/data/Crops";
 
-const gardenManagementImage = require("@/assets/images/crops/maize.jpg");
+const gardenManagementImage = require("@/assets/images/Logo/Agri-Solution.jpg");
 import { useState } from "react";
 
 const CropResourceScreen = () => {
@@ -22,15 +22,20 @@ const CropResourceScreen = () => {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
-      headerImage={<Image source={gardenManagementImage} />}
+      headerImage={
+        <Image
+          style={{ resizeMode: "cover", minWidth: "100%" }}
+          source={interestCrop.image}
+        />
+      }
     >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">{interestCrop.name}</ThemedText>
       </ThemedView>
       <ThemedText>
-        This app includes example code to help you get started.
+        {interestCrop.description}
       </ThemedText>
-      <Collapsible title="File-based routing">
+      <Collapsible title="Varieties">
         <ThemedText>
           This app has two screens:{" "}
           <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
