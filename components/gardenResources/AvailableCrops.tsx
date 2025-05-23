@@ -10,20 +10,7 @@ const gardenManagementImage = require("@/assets/images/SVGs/PlantIntro.png");
 
 const AvailableCrops = () => {
   const router = useRouter();
-  const cropsList = [
-    {
-      id: 1,
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      id: 2,
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-  ];
+
   const [selectedCrop, setSelectedCrop] = useState<any>(
     Crop.sort((a, b) => a.name.localeCompare(b.name))[0]?.name
   );
@@ -31,10 +18,13 @@ const AvailableCrops = () => {
   const handleCardPress = (cropRoute: string) => {
     try {
       router ? router.push(cropRoute as any) : null;
-      console.log("Route tapped:", cropRoute);
     } catch (error) {
       console.error("Error navigating to crop route:", error);
     }
+  };
+
+  const renderCropCard = ({ crop }: any) => {
+    return <IntroCard key={crop.id} label={crop.name} image={crop.image} />;
   };
 
   return (
@@ -50,7 +40,7 @@ const AvailableCrops = () => {
         }}
       >
         <View style={styles.cardContainer}>
-          {cropsList.map((service, index) => (
+          {Crop.map((service, index) => (
             <Pressable
               key={index}
               style={{ paddingTop: 15 }}
@@ -58,7 +48,7 @@ const AvailableCrops = () => {
                 handleCardPress(`/(tabs)/gardenResources/${service.id}`)
               }
             >
-              <IntroCard label={service.label} image={service.image} />
+              <IntroCard label={service.name} image={gardenManagementImage} />
             </Pressable>
           ))}
         </View>
