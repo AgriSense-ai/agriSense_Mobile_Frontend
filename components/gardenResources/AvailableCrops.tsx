@@ -1,83 +1,40 @@
-import { StyleSheet, ScrollView, View } from "react-native";
+import { StyleSheet, ScrollView, View, Pressable } from "react-native";
 import IntroCard from "../indexPage/servicesCenter/servicesCard";
 import { ThemedText } from "../ThemedText";
 import { Colors } from "@/constants/Colors";
 import { useState } from "react";
 import { Crop } from "@/constants/data/Crops";
+import { useRouter } from "expo-router";
 
 const gardenManagementImage = require("@/assets/images/SVGs/PlantIntro.png");
 
 const AvailableCrops = () => {
+  const router = useRouter();
   const cropsList = [
     {
+      id: 1,
       label: "Banana",
       image: gardenManagementImage,
       route: "/explore",
     },
     {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
-      label: "Banana",
-      image: gardenManagementImage,
-      route: "/explore",
-    },
-    {
+      id: 2,
       label: "Banana",
       image: gardenManagementImage,
       route: "/explore",
     },
   ];
-  const [selectedCrop, setSelectedCrop] = useState<string | null>(
+  const [selectedCrop, setSelectedCrop] = useState<any>(
     Crop.sort((a, b) => a.name.localeCompare(b.name))[0]?.name
   );
 
-  const renderCropCard = ({ crop }: any) => {
-    return (
-      <IntroCard
-        key={crop.id}
-        label={crop.name}
-        image={crop.image}
-        route={`/explore/${crop.name}`}
-      />
-    );
+  const handleCardPress = (cropRoute: string) => {
+    try {
+      router ? router.push(cropRoute as any) : null;
+      console.log("Route tapped:", cropRoute);
+    } catch (error) {
+      console.error("Error navigating to crop route:", error);
+    }
   };
 
   return (
@@ -94,14 +51,15 @@ const AvailableCrops = () => {
       >
         <View style={styles.cardContainer}>
           {cropsList.map((service, index) => (
-            <View key={index} style={{ paddingTop: 15 }}>
-              <IntroCard
-                key={index}
-                label={service.label}
-                image={service.image}
-                route={service.route}
-              />
-            </View>
+            <Pressable
+              key={index}
+              style={{ paddingTop: 15 }}
+              onPress={() =>
+                handleCardPress(`/(tabs)/gardenResources/${service.id}`)
+              }
+            >
+              <IntroCard label={service.label} image={service.image} />
+            </Pressable>
           ))}
         </View>
       </ScrollView>

@@ -46,7 +46,6 @@ function ServicesLayout() {
             <IntroCard
               label={service.label}
               image={service.image}
-              route={service.route}
             />
           </Pressable>
         ))}

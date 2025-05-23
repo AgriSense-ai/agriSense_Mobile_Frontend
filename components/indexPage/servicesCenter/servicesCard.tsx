@@ -5,10 +5,9 @@ import { useRouter } from "expo-router";
 interface CardProps {
   image: any;
   label: string;
-  route?: string;
 }
 
-function introCard({ label, image, route }: CardProps) {
+function introCard({ label, image }: CardProps) {
   const router = useRouter();
   return (
     <View style={styles.cardContainer}>
