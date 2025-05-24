@@ -55,7 +55,11 @@ export default function TabLayout() {
         options={{
           title: "Explore",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="archivebox.fill" color={color} />
+            <IconSymbol
+              size={28}
+              name="bubble.left.and.text.bubble.right.fill"
+              color={color}
+            />
           ),
         }}
       />
