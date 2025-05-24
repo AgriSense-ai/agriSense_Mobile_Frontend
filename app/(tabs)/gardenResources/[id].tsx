@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, Image } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Platform } from "react-native";
+
 import AddGardenNavigationButton from "@/components/gardenManagement/AddGardenNavigationButton";
 import { Collapsible } from "@/components/Collapsible";
 import { ExternalLink } from "@/components/ExternalLink";
