@@ -1,3 +1,4 @@
+import BackgroundLayout from "@/components/ui/BackgroundLayout";
 import React, { useState, useRef, useEffect } from "react";
 import {
   View,
@@ -65,40 +66,48 @@ const ExploreChatScreen: React.FC = () => {
   );
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
-    >
-      <FlatList
-        ref={flatListRef}
-        data={messages}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.messagesList}
-      />
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          value={input}
-          onChangeText={setInput}
-          placeholder="Type your message..."
-          onSubmitEditing={sendMessage}
-          returnKeyType="send"
+    <BackgroundLayout>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+      >
+        <FlatList
+          ref={flatListRef}
+          data={messages}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.messagesList}
         />
-        <Button title="Send" onPress={sendMessage} />
-      </View>
-    </KeyboardAvoidingView>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            value={input}
+            onChangeText={setInput}
+            placeholder="Type your message..."
+            onSubmitEditing={sendMessage}
+            returnKeyType="send"
+          />
+          <Button title="Send" onPress={sendMessage} />
+        </View>
+      </KeyboardAvoidingView>
+    </BackgroundLayout>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", bottom: 80 },
+  container: {
+    flex: 1,
+    backgroundColor: "transparent",
+    bottom: 80,
+    position: "fixed",
+    minWidth: "100%",
+  },
   messagesList: { padding: 16, flexGrow: 1, justifyContent: "flex-end" },
   messageContainer: {
     marginVertical: 4,
     padding: 10,
     borderRadius: 12,
-    maxWidth: "80%",
+    minWidth: "80%",
   },
   userMessage: {
     backgroundColor: "#DCF8C6",
@@ -112,16 +121,15 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     padding: 8,
-    borderTopWidth: 1,
-    borderColor: "#eee",
-    backgroundColor: "#fafafa",
+    backgroundColor: "transparent",
     alignItems: "center",
   },
   input: {
     flex: 1,
     borderWidth: 1,
     borderColor: "#ddd",
-    borderRadius: 20,
+    borderRadius: 8,
+    height: 45,
     paddingHorizontal: 16,
     paddingVertical: 8,
     marginRight: 8,
