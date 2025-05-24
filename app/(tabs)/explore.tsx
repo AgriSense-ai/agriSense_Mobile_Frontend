@@ -68,7 +68,6 @@ const ExploreChatScreen: React.FC = () => {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
-      keyboardVerticalOffset={80}
     >
       <FlatList
         ref={flatListRef}
@@ -93,7 +92,7 @@ const ExploreChatScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff" },
+  container: { flex: 1, backgroundColor: "#fff", bottom: 80 },
   messagesList: { padding: 16, flexGrow: 1, justifyContent: "flex-end" },
   messageContainer: {
     marginVertical: 4,
