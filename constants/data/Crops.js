@@ -128,12 +128,24 @@ export const Crop = [
       "Contains essential vitamins and minerals.",
       "May help reduce the risk of heart disease.",
     ],
-    cultivation: {
-      soilType: "Loamy or sandy soil with good drainage.",
-      climate: "Temperate climate with moderate rainfall.",
-      plantingSeason: "Spring or fall, depending on the variety.",
-      harvestingTime: "Typically 4-6 months after planting.",
-    },
+    cultivationTip: [
+      {
+        name: "Soil Type",
+        description: "Loamy or sandy soil with good drainage.",
+      },
+      {
+        name: "Climate",
+        description: "Temperate climate with moderate rainfall.",
+      },
+      {
+        name: "Planting Season",
+        description: "Spring or fall, depending on the variety.",
+      },
+      {
+        name: "Harvesting Time",
+        description: "Typically 4-6 months after planting.",
+      },
+    ],
     commonDieseases: [
       {
         name: "Wheat rust",
@@ -197,7 +209,7 @@ export const Crop = [
   {
     id: 2,
     name: "Banana",
-    image: "../../assets/crops/banana.jpg",
+    image: require("@/assets/images/crops/banana.jpg"),
     scientificName: "Musa spp.",
     family: "Musaceae",
     varieties: [
@@ -262,12 +274,18 @@ export const Crop = [
       "Contains fiber for digestive health.",
       "Supports immune function with vitamin C.",
     ],
-    cultivation: {
-      soilType: "Well-drained, fertile loamy soil.",
-      climate: "Tropical or subtropical climate with high humidity.",
-      plantingSeason: "Year-round in suitable climates.",
-      harvestingTime: "9-12 months after planting.",
-    },
+    cultivationTip: [
+      { name: "Soil Type", description: "Well-drained, fertile loamy soil." },
+      {
+        name: "Climate",
+        description: "Tropical or subtropical climate with high humidity.",
+      },
+      {
+        name: "Planting Season",
+        description: "Year-round in suitable climates.",
+      },
+      { name: "Harvesting Time", description: "9-12 months after planting." },
+    ],
     commonDieseases: [
       {
         name: "Panama disease",
@@ -333,7 +351,7 @@ export const Crop = [
   {
     id: 3,
     name: "Tomato",
-    image: "../../assets/crops/tomato.jpg",
+    image: require("@/assets/images/crops/tomatoe.webp"),
     scientificName: "Solanum lycopersicum",
     family: "Solanaceae",
     varieties: [
@@ -402,12 +420,25 @@ export const Crop = [
       "Boosts immune system with vitamin C.",
       "Promotes healthy skin and vision.",
     ],
-    cultivation: {
-      soilType: "Well-drained, fertile loamy soil rich in organic matter.",
-      climate: "Warm, frost-free climate with plenty of sunlight.",
-      plantingSeason: "Spring and summer, or year-round in tropical climates.",
-      harvestingTime: "60-85 days after transplanting, depending on variety.",
-    },
+
+    cultivationTip: [
+      {
+        name: "Soil Type",
+        description: "Well-drained, fertile loamy soil rich in organic matter.",
+      },
+      {
+        name: "Climate",
+        description: "Warm, frost-free climate with plenty of sunlight.",
+      },
+      {
+        name: "Planting Season",
+        description: "Spring and summer, or year-round in tropical climates.",
+      },
+      {
+        name: "Harvesting Time",
+        description: "60-85 days after transplanting, depending on variety.",
+      },
+    ],
     commonDieseases: [
       {
         name: "Early Blight",

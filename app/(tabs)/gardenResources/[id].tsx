@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Platform } from "react-native";
-
+import AddGardenNavigationButton from "@/components/gardenManagement/AddGardenNavigationButton";
 import { Collapsible } from "@/components/Collapsible";
 import { ExternalLink } from "@/components/ExternalLink";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Crop } from "@/constants/data/Crops";
+import CropCategory from "@/components/gardenResources/cropCategory";
 
 const gardenManagementImage = require("@/assets/images/Logo/Agri-Solution.jpg");
 import { useState } from "react";
@@ -32,94 +33,79 @@ const CropResourceScreen = () => {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">{interestCrop.name}</ThemedText>
       </ThemedView>
-      <ThemedText>
-        {interestCrop.description}
-      </ThemedText>
+      <ThemedText>{interestCrop.description}</ThemedText>
       <Collapsible title="Varieties">
-        <ThemedText>
-          This app has two screens:{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-          and{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{" "}
-          sets up the tab navigator.
-        </ThemedText>
+        {interestCrop.varieties.map((variety) => (
+          <CropCategory
+            key={variety.name}
+            name={variety.name}
+            description={variety.description}
+          />
+        ))}
         <ExternalLink href="https://docs.expo.dev/router/introduction">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the
-          web version, press <ThemedText type="defaultSemiBold">w</ThemedText>{" "}
-          in the terminal running this project.
-        </ThemedText>
+      <Collapsible title="Health Benefits">
+        {interestCrop.healthBenefits.map((benefit, index) => (
+          <ThemedText key={index} style={{ marginBottom: 8 }}>
+            <Text style={styles.bullet}>{"\u2022"}</Text> {benefit}
+          </ThemedText>
+        ))}
       </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the{" "}
-          <ThemedText type="defaultSemiBold">@2x</ThemedText> and{" "}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to
-          provide files for different screen densities
-        </ThemedText>
-        <Image
-          source={require("@/assets/images/react-logo.png")}
-          style={{ alignSelf: "center" }}
-        />
+      <Collapsible title="Cultivation Tips">
+        {interestCrop.cultivationTip.map((tip, index) => (
+          <CropCategory
+            key={index}
+            name={tip.name}
+            description={tip.description}
+          />
+        ))}
         <ExternalLink href="https://reactnative.dev/docs/images">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText>{" "}
-          to see how to load{" "}
-          <ThemedText style={{ fontFamily: "SpaceMono" }}>
-            custom fonts such as this one.
+      <Collapsible title="Uses">
+        {interestCrop.uses.map((use, index) => (
+          <ThemedText key={index} style={{ marginBottom: 8 }}>
+            <Text style={styles.bullet}>{"\u2022"}</Text> {use}
           </ThemedText>
-        </ThemedText>
+        ))}
         <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{" "}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook
-          lets you inspect what the user&apos;s current color scheme is, and so
-          you can adjust UI colors accordingly.
-        </ThemedText>
+      <Collapsible title="Diesease">
+        {interestCrop.commonDieseases.map((disease, index) => (
+          <CropCategory
+            key={index}
+            name={disease.name}
+            description={disease.description}
+          />
+        ))}
         <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{" "}
-          <ThemedText type="defaultSemiBold">
-            components/HelloWave.tsx
-          </ThemedText>{" "}
-          component uses the powerful{" "}
-          <ThemedText type="defaultSemiBold">
-            react-native-reanimated
-          </ThemedText>{" "}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The{" "}
-              <ThemedText type="defaultSemiBold">
-                components/ParallaxScrollView.tsx
-              </ThemedText>{" "}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
+      <Collapsible title="Pests">
+        {interestCrop.Pests.map((pest, index) => (
+          <CropCategory
+            key={index}
+            name={pest.name}
+            description={pest.description}
+          />
+        ))}
+        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
+          <ThemedText type="link">Learn more</ThemedText>
+        </ExternalLink>
       </Collapsible>
+      <ThemedView style={{ marginTop: 16 }}>
+        <AddGardenNavigationButton
+          type="Continue"
+          route="/gardenManagement/addGarden"
+          name="Learn More"
+        />
+      </ThemedView>
     </ParallaxScrollView>
   );
 };
@@ -130,5 +116,10 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: "row",
     gap: 8,
+  },
+  bullet: {
+    fontSize: 18,
+    marginRight: 18,
+    lineHeight: 22,
   },
 });

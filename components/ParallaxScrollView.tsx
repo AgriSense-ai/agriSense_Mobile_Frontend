@@ -6,12 +6,11 @@ import Animated, {
   useAnimatedStyle,
   useScrollViewOffset,
 } from "react-native-reanimated";
-
 import { ThemedView } from "@/components/ThemedView";
 import { useBottomTabOverflow } from "@/components/ui/TabBarBackground";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-const HEADER_HEIGHT = 250;
+const HEADER_HEIGHT = 300;
 
 type Props = PropsWithChildren<{
   headerImage: ReactElement;
@@ -81,7 +80,6 @@ const SHADOW =
         },
         shadowOpacity: 0.5,
         shadowRadius: 8,
-        
       }
     : {
         elevation: 9,

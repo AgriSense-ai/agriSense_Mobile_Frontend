@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export interface AddGardenNavigationButtonProps {
   type: "Back" | "Continue" | "Save";
-  name?: "Clear" | "Mark" | "Save";
+  name?: "Clear" | "Mark" | "Save" | "Learn More";
   route?: string;
   onPress?: () => void;
 }
@@ -38,7 +38,7 @@ const AddGardenNavigationButton = ({
   return (
     <TouchableOpacity
       style={
-        type === "Continue" || type === "Save"
+        type === "Continue" || type === "Save" || name === "Learn More"
           ? styles.continueButton
           : styles.backButton
       }
