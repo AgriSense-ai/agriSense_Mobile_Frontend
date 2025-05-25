@@ -4,13 +4,23 @@ import { Colors } from "@/constants/Colors";
 import React from "react";
 import { useRouter } from "expo-router";
 
-const NavIcon = () => {
+interface NavIconProps {
+  size?: number;
+  weight?: "light" | "regular" | "medium" | "heavy";
+  route: string;
+}
+
+const NavIcon = ({ size = 18, route, weight = "heavy" }: NavIconProps) => {
   const router = useRouter();
   const color = Colors.light.tint;
   const handlePress = () => {
     try {
-      router.push("/(tabs)/gardenManagement/ZoneManagement");
-      console.log("ZoneManagement button pressed");
+      if (route) {
+        router.push(route as any);
+        console.log("ZoneManagement button pressed");
+      } else {
+        console.warn("No route provided to NavIcon.");
+      }
     } catch (error) {
       console.error("Error navigating to ZoneManagement:", error);
     }
@@ -18,7 +28,12 @@ const NavIcon = () => {
 
   return (
     <Pressable onPress={handlePress}>
-      <IconSymbol size={19} weight="heavy" name="chevron.right" color={color} />
+      <IconSymbol
+        size={size}
+        weight={weight}
+        name="chevron.right"
+        color={color}
+      />
     </Pressable>
   );
 };

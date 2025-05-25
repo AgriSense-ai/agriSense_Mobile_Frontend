@@ -97,9 +97,10 @@ const ExploreChatScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    display: "flex",
+    flexDirection: "column",
     backgroundColor: "transparent",
-    bottom: 80,
-    position: "fixed",
+    alignContent: "center",
     minWidth: "100%",
   },
   messagesList: { padding: 16, flexGrow: 1, justifyContent: "flex-end" },

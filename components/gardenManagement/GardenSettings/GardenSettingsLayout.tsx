@@ -16,7 +16,10 @@ const GardenSettingsLayout = () => {
         label="Crops Remaining"
         value={GardenProfile.cropsRemaining + ` Crops`}
       />
-      <SetttingRow label="Zone Management" value={GardenProfile.area + ` Acres`} />
+      <SetttingRow
+        label="Zone Management"
+        route="/(tabs)/gardenManagement/ZoneManagement"
+      />
       <View style={styles.mapContainer}>
         <SettingsMap coordinates={GardenProfile.coordinates} />
       </View>
@@ -51,7 +54,8 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 10,
     overflow: "hidden",
-  },  title: {
+  },
+  title: {
     fontSize: 28,
     fontWeight: "600",
     marginBottom: 10,

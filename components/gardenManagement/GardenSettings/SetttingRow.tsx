@@ -3,22 +3,24 @@ import React from "react";
 import SettingDivider from "./SettingDivider";
 import ToggleButton from "./ToggleButton";
 import NavIcon from "@/components/ui/NavIcon";
+import { routePatternToRegex } from "expo-router/build/fork/getStateFromPath-forks";
 ToggleButton;
 
 interface SettingRowProps {
   label: string;
-  value: string | boolean | number;
+  value?: string | boolean | number;
+  route?: string;
 }
 
-const SetttingRow = ({ label, value }: SettingRowProps) => {
+const SetttingRow = ({ label, value, route }: SettingRowProps) => {
   return (
     <View style={styles.info}>
       <View style={styles.infoRow}>
         <Text style={styles.label}>{label}</Text>
-        {label === "Active" ? (
+        {label === "Active" || label === "Dark Mode" ? (
           <ToggleButton status={typeof value === "boolean" ? value : false} />
-        ) : label === "Zone Management" ? (
-          <NavIcon />
+        ) : route !== undefined ? (
+          <NavIcon route={route} />
         ) : (
           <Text style={styles.value}>{value}</Text>
         )}
@@ -41,8 +43,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   label: {
-    fontSize: 19,
-    fontWeight: "500",
+    fontSize: 15,
+    fontWeight: "400",
     color: "#234733",
   },
   value: {
