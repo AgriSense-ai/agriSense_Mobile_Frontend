@@ -1,4 +1,5 @@
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
+import { Colors } from "@/constants/Colors";
 import React, { useState, useRef, useEffect } from "react";
 import {
   View,
@@ -9,6 +10,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
+  Pressable,
 } from "react-native";
 
 interface Message {
@@ -87,7 +89,9 @@ const ExploreChatScreen: React.FC = () => {
             onSubmitEditing={sendMessage}
             returnKeyType="send"
           />
-          <Button title="Send" onPress={sendMessage} />
+          <Pressable onPress={sendMessage} style={styles.sendButton}>
+            <Text style={{ color: "#ffff", fontSize: 16 }}>Send</Text>
+          </Pressable>
         </View>
       </KeyboardAvoidingView>
     </BackgroundLayout>
@@ -97,10 +101,9 @@ const ExploreChatScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    display: "flex",
-    flexDirection: "column",
     backgroundColor: "transparent",
-    alignContent: "center",
+    bottom: 80,
+    position: "fixed",
     minWidth: "100%",
   },
   messagesList: { padding: 16, flexGrow: 1, justifyContent: "flex-end" },
@@ -136,6 +139,14 @@ const styles = StyleSheet.create({
     marginRight: 8,
     fontSize: 16,
     backgroundColor: "#fff",
+  },
+  sendButton: {
+    backgroundColor: Colors.light.text,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
