@@ -10,9 +10,9 @@ const changePassword = () => {
         <View style={styles.card}>
           <Text style={styles.title}>Add Garden</Text>
           <View style={styles.row}>
-            <PasswordSlots />
-            <PasswordSlots />
-            <PasswordSlots />
+            <PasswordSlots PlaceHolder="Old Password" />
+            <PasswordSlots PlaceHolder="New Password" />
+            <PasswordSlots PlaceHolder="Confirm Password" />
             <View style={styles.buttonRow}>
               <AddGardenNavigationButton
                 type={"Continue"}

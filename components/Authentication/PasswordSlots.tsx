@@ -3,19 +3,24 @@ import { View, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 interface PasswordSlotsProps {
+  PlaceHolder: string;
   length?: number;
 }
 
-const PasswordSlots: React.FC<PasswordSlotsProps> = ({ length = 16 }) => {
+const PasswordSlots: React.FC<PasswordSlotsProps> = ({
+  PlaceHolder,
+  length = 16,
+}) => {
   const [password, setPassword] = useState("");
   const [secure, setSecure] = useState(true);
 
   const handleChange = (text: string) => {
     try {
-    if (text.length <= length) {
-      setPassword(text);
-      console.log(text);
-    }} catch (error) {
+      if (text.length <= length) {
+        setPassword(text);
+        console.log(text);
+      }
+    } catch (error) {
       console.error("Error updating password:", error);
     }
   };
@@ -31,7 +36,7 @@ const PasswordSlots: React.FC<PasswordSlotsProps> = ({ length = 16 }) => {
           secureTextEntry={secure}
           maxLength={length}
           autoFocus
-          placeholder="Enter password"
+          placeholder={PlaceHolder}
         />
         <TouchableOpacity
           onPress={() => setSecure(!secure)}

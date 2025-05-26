@@ -1,5 +1,6 @@
 import { Colors } from "@/constants/Colors";
 import React, { useState } from "react";
+import { useRouter } from "expo-router";
 import {
   View,
   Text,
@@ -13,6 +14,7 @@ const ChatSection = () => {
   const [message, setMessage] = useState(
     "Hello, My coffee has black spots any recommendations"
   );
+  const router = useRouter();
 
   return (
     <View style={styles.root}>
@@ -27,7 +29,7 @@ const ChatSection = () => {
         />
         <TouchableOpacity
           style={styles.sendButton}
-          onPress={() => console.log("Send:", message)}
+          onPress={() => router.push("/explore")}
         >
           <Text style={styles.sendButtonText}>Send</Text>
         </TouchableOpacity>
