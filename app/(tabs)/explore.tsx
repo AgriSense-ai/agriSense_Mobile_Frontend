@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   TextInput,
-  Button,
   FlatList,
   Text,
   KeyboardAvoidingView,
@@ -12,6 +11,8 @@ import {
   StyleSheet,
   Pressable,
 } from "react-native";
+
+import { Ollama } from "ollama";
 
 interface Message {
   id: string;
