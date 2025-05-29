@@ -60,11 +60,10 @@ export default function App() {
 
   const renderPicture = () => {
     return (
-      <View>
+      <View style={styles.camera}>
         {uri && (
-          <Image source={{ uri }} contentFit="cover" style={{ flex: 1 }} />
+          <Image source={{ uri }} contentFit="fill" style={{ flex: 1 }} />
         )}
-        <Button onPress={renderCamera} title="Take another picture" />
       </View>
     );
   };
