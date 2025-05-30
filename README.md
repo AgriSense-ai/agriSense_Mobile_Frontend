@@ -1,50 +1,70 @@
-# Welcome to your Expo app 👋
+# agriSense Mobile Frontend
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository contains the mobile frontend for the agriSense project. The application is designed to provide users with an intuitive interface for interacting with agriSense services, focusing on agricultural data collection, monitoring, and visualization.
 
-## Get started
+## Features
 
-1. Install dependencies
+- User authentication and onboarding
+- Dashboard for real-time agricultural data
+- Sensor data visualization
+- Field and crop management tools
+- Notifications and alerts
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+- **React Native** (Expo)
+- **TypeScript**
+- **Redux** for state management
+- **REST API** integration
 
-   ```bash
-   npx expo start
-   ```
+## Getting Started
 
-In the output, you'll find options to open the app in a
+### Prerequisites
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Node.js (v16+)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Installation
 
 ```bash
-npm run reset-project
+git clone https://github.com/<your-org>/agriSense_Mobile_Frontend.git
+cd agriSense_Mobile_Frontend
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Running the App
 
-## Learn more
+```bash
+expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Scan the QR code with the Expo Go app on your mobile device.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Project Structure
+```
+.
+├── App.tsx
+├── app/                # App entry and navigation (Expo Router)
+│   ├── _layout.tsx
+│   ├── index.tsx
+│   └── ...             # Other screens and routes
+├── assets/             # Images, fonts, and static assets
+├── components/         # Reusable UI components
+├── constants/          # App-wide constants
+├── hooks/              # Custom React hooks
+├── redux/              # Redux store, slices, and actions
+├── services/           # API and service layer
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+├── package.json
+└── README.md
+```
 
-## Join the community
+## Contributing
 
-Join our community of developers creating universal apps.
+Contributions are welcome! Please open issues or submit pull requests for improvements and bug fixes.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## License
+
+This project is licensed under the MIT License.
