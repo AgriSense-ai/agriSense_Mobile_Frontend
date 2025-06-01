@@ -1,6 +1,7 @@
 import { Tabs } from "expo-router";
 import React from "react";
 import { Platform, StyleSheet, View } from "react-native";
+import "../../global.css";
 
 import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
@@ -64,9 +65,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="profileSettings/index"
         options={{
-          title: "profile",
+          title: "Settings",
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="person.fill" color={color} />
           ),
@@ -81,6 +82,13 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="gardenResources"
+        options={{
+          href: null,
+          title: "Garden Resources",
+        }}
+      />
+      <Tabs.Screen
+        name="profileSettings/paymentMethods"
         options={{
           href: null,
           title: "Garden Resources",

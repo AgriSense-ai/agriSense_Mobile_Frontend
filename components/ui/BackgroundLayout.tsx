@@ -2,7 +2,6 @@ import { StyleSheet, View, ImageBackground, ViewProps } from "react-native";
 import { Colors } from "../../constants/Colors";
 import NavBarLayout from "@/components/navBar/navBarLayout";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 const backgroundImage = require("@/assets/images/Background.png");
 
 type BackgroundLayoutProps = ViewProps & {
@@ -15,17 +14,18 @@ const BackgroundLayout: React.FC<BackgroundLayoutProps> = ({
   ...rest
 }) => {
   return (
-      <ImageBackground {...rest}
-        source={backgroundImage}
-        resizeMode="stretch"
-        style={[styles.background, style]}
-        imageStyle={styles.image}
-      >
-        <View style={styles.container}>
-          <NavBarLayout />
-          <View style={styles.body}>{children}</View>
-        </View>
-      </ImageBackground>
+    <ImageBackground
+      {...rest}
+      source={backgroundImage}
+      resizeMode="stretch"
+      style={[styles.background, style]}
+      imageStyle={styles.image}
+    >
+      <View style={styles.container}>
+        <NavBarLayout />
+        <View style={styles.body}>{children}</View>
+      </View>
+    </ImageBackground>
   );
 };
 
@@ -34,31 +34,19 @@ export default BackgroundLayout;
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width: "100%",
-    height: "100%",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: Colors.light.background,
   },
   image: {
     opacity: 0.2,
-    position: "absolute",
-    width: "100%",
-    height: "100%",
   },
   container: {
     flex: 1,
-    width: "100%",
-    height: "100%",
-    justifyContent: "flex-end",
     alignItems: "center",
     paddingTop: 50,
   },
   body: {
     flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    paddingTop: -1,
-    marginTop: 10,
   },
 });

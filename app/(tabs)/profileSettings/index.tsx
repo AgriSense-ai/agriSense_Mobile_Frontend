@@ -4,11 +4,6 @@ import BackgroundLayout from "@/components/ui/BackgroundLayout";
 import ProgressCard from "@/components/gardenManagement/progressCard";
 import SettingsOptions from "@/components/ProfileSettings/SettingsOptions";
 const Profile = () => {
-  const handleEditProfile = () => {
-    // Handle edit profile action
-    console.log("Edit Profile button clicked");
-  };
-
   return (
     <BackgroundLayout>
       <View style={styles.container}>

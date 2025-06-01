@@ -6,7 +6,10 @@ const SettingsOptions: React.FC = () => {
   return (
     <View style={styles.card}>
       <SetttingRow label="Dark Mode" value={true} />
-      <SetttingRow label="Payment Methods" />
+      <SetttingRow
+        label="Payment Methods"
+        route="/(tabs)/profileSettings/paymentMethods"
+      />
       <SetttingRow label="Notifications" />
       <SetttingRow label="Language" />
       <SetttingRow
