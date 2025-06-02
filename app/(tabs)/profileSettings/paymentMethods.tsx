@@ -38,8 +38,8 @@ const PaymentMethods: React.FC = () => {
 
   return (
     <BackgroundLayout>
-      <View className="grow flex-1 justify-center items-center">
-        <ScrollView className="grow m-10 w-full">
+      <View className="bg-white p-9 justify-center items-center mt-20 rounded-3xl shadow-lg ">
+        <View className="grow mx-10 w-full">
           <Text style={styles.title}>Add Payment Method</Text>
           <Text style={styles.label}>Select Mobile Network</Text>
           <View style={styles.networkContainer}>
@@ -66,7 +66,7 @@ const PaymentMethods: React.FC = () => {
           <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
             <Text style={styles.saveButtonText}>Make Payment</Text>
           </TouchableOpacity>
-        </ScrollView>
+        </View>
       </View>
     </BackgroundLayout>
   );

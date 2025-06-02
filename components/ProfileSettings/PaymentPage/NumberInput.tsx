@@ -5,9 +5,9 @@ const NumberInput = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   return (
     <>
-      <Text className="mb-8 text-base">Phone Number</Text>
+      <Text className="mb-2 text-base">Phone Number</Text>
       <TextInput
-        className="border border-gray-700  text-base rounded-lg p-12 mb-4"
+        className="border border-gray-400  text-base rounded-lg p-4 mb-4"
         placeholder="e.g. 0771234567"
         keyboardType="phone-pad"
         value={phoneNumber}
