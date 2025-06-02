@@ -1,7 +1,6 @@
 import { StyleSheet, View, ImageBackground, ViewProps } from "react-native";
 import { Colors } from "../../constants/Colors";
 import NavBarLayout from "@/components/navBar/navBarLayout";
-import React from "react";
 const backgroundImage = require("@/assets/images/Background.png");
 
 type BackgroundLayoutProps = ViewProps & {

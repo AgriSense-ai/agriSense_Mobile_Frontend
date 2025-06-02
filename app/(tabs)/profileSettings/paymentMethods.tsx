@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import "../../../global.css";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
+import NumberInput from "@/components/ProfileSettings/PaymentPage/NumberInput";
 
 type Network = "MTN" | "Airtel";
 
@@ -37,8 +38,8 @@ const PaymentMethods: React.FC = () => {
 
   return (
     <BackgroundLayout>
-      <View className="bg-white" style={styles.container}>
-        <ScrollView className="flex-1" >
+      <View className="grow flex-1 justify-center items-center">
+        <ScrollView className="grow m-10 w-full">
           <Text style={styles.title}>Add Payment Method</Text>
           <Text style={styles.label}>Select Mobile Network</Text>
           <View style={styles.networkContainer}>
@@ -61,21 +62,9 @@ const PaymentMethods: React.FC = () => {
               <Text style={styles.networkText}>Airtel Uganda</Text>
             </TouchableOpacity>
           </View>
-          {selectedNetwork && (
-            <>
-              <Text style={styles.label}>Phone Number</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="e.g. 0771234567"
-                keyboardType="phone-pad"
-                value={phoneNumber}
-                onChangeText={setPhoneNumber}
-                maxLength={10}
-              />
-            </>
-          )}
+          {selectedNetwork && <NumberInput />}
           <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-            <Text style={styles.saveButtonText}>Save Payment Method</Text>
+            <Text style={styles.saveButtonText}>Make Payment</Text>
           </TouchableOpacity>
         </ScrollView>
       </View>
