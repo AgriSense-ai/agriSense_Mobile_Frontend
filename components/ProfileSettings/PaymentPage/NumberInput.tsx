@@ -7,8 +7,7 @@ const NumberInput = () => {
     <>
       <Text className="mb-2 text-base">Phone Number</Text>
       <TextInput
-        className="border border-gray-400  text-base rounded-lg p-4 mb-4"
-        placeholder="e.g. 0771234567"
+        className="rounded-md bg-white px-3 border-2 h-auto border-purple-700 text-[16px] text-black"
         keyboardType="phone-pad"
         value={phoneNumber}
         onChangeText={setPhoneNumber}
