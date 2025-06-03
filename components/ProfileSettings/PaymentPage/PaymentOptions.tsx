@@ -1,44 +1,32 @@
-import { StyleSheet, Text, Pressable } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 
-type Network = "MTN" | "Airtel";
+interface PaymentOptionsProps {
+  name: "MTN" | "Airtel";
+  onPress: () => void;
+}
 
-const PaymentOptions: React.FC<Network> = (network) => {
-  const [selectedNetwork, setSelectedNetwork] = useState<Network | null>(null);
-
-  const handleSelectNetwork = (network: Network) => {
-    setSelectedNetwork(network);
-    selectedNetwork === network
-      ? setSelectedNetwork(null) // Deselect if already selected
-      : setSelectedNetwork(network); // Select the network
-  };
+const PaymentOptions: React.FC<PaymentOptionsProps> = ({ name, onPress }) => {
+  const [selectedNetwork, setSelectedNetwork] = useState<
+    "MTN" | "Airtel" | null
+  >(null);
 
   return (
-    <Pressable
-      className="flex-row items-center p-16 rounded-lg mx-8"
-      
-      onPress={() => handleSelectNetwork(network)}
+    <TouchableOpacity
+      onPress={onPress}
+      className={`flex-1 mx-2 p-4  items-center rounded-lg ${
+        selectedNetwork === "MTN"
+          ? "bg-yellow border-2 border-yellow-900"
+          : selectedNetwork === "Airtel"
+          ? "bg-red-700 border-2 border-red-900"
+          : "bg-grey-800"
+      }`}
     >
-      <Text style={styles.networkText}>Airtel Uganda</Text>
-    </Pressable>
+      <Text className="text-base font-medium text-text-100">
+        {name === "Airtel" ? "Airtel Uganda" : "MTN Uganda"}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
 export default PaymentOptions;
-
-const styles = StyleSheet.create({
-  networkButton: {
-    flex: 1,
-    padding: 16,
-    marginHorizontal: 8,
-    backgroundColor: "#f2f2f2",
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  selectedNetwork: {
-    backgroundColor: "#ffe082",
-    borderColor: "#ffd600",
-    borderWidth: 2,
-  },
-  networkText: { fontSize: 16, fontWeight: "600" },
-});

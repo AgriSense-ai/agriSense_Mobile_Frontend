@@ -12,7 +12,7 @@ import {
 import "../../../global.css";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
 import NumberInput from "@/components/ProfileSettings/PaymentPage/NumberInput";
-
+import PaymentOptions from "@/components/ProfileSettings/PaymentPage/PaymentOptions";
 type Network = "MTN" | "Airtel";
 
 const PaymentMethods: React.FC = () => {
@@ -21,6 +21,9 @@ const PaymentMethods: React.FC = () => {
 
   const handleSelectNetwork = (network: Network) => {
     setSelectedNetwork(network);
+    selectedNetwork === network
+      ? setSelectedNetwork(null) // Deselect if already selected
+      : setSelectedNetwork(network);
     setPhoneNumber("");
   };
 
@@ -38,29 +41,23 @@ const PaymentMethods: React.FC = () => {
 
   return (
     <BackgroundLayout>
-      <View className="bg-l p-9 justify-center items-center mt-20 rounded-3xl shadow-lg ">
+      <View className="bg-background p-9 justify-center items-center mt-20 rounded-3xl shadow-lg ">
         <View className="mx-10 w-full">
-          <Text style={styles.title}>Add Payment Method</Text>
-          <Text style={styles.label}>Select Mobile Network</Text>
-          <View style={styles.networkContainer}>
-            <TouchableOpacity
-              style={[
-                styles.networkButton,
-                selectedNetwork === "MTN" && styles.selectedNetwork,
-              ]}
-              onPress={() => handleSelectNetwork("MTN")}
-            >
-              <Text style={styles.networkText}>MTN Uganda</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.networkButton,
-                selectedNetwork === "Airtel" && styles.selectedNetwork,
-              ]}
+          <Text className="text-2xl color-text-200 font-bold mb-8 text-center">
+            Add Payment Method
+          </Text>
+          <Text className="text-xl color-text-200 mb-4">
+            Select Mobile Network
+          </Text>
+          <View className="flex-row mb-6">
+            <PaymentOptions
+              name="Airtel"
               onPress={() => handleSelectNetwork("Airtel")}
-            >
-              <Text style={styles.networkText}>Airtel Uganda</Text>
-            </TouchableOpacity>
+            />
+            <PaymentOptions
+              name="MTN"
+              onPress={() => handleSelectNetwork("MTN")}
+            />
           </View>
           {selectedNetwork && <NumberInput />}
           <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
