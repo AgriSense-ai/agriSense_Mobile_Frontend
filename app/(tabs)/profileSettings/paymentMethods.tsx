@@ -38,7 +38,7 @@ const PaymentMethods: React.FC = () => {
 
   return (
     <BackgroundLayout>
-      <View className="bg-white p-9 justify-center items-center mt-20 rounded-3xl shadow-lg ">
+      <View className="bg-l p-9 justify-center items-center mt-20 rounded-3xl shadow-lg ">
         <View className="mx-10 w-full">
           <Text style={styles.title}>Add Payment Method</Text>
           <Text style={styles.label}>Select Mobile Network</Text>
