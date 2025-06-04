@@ -51,17 +51,14 @@ const ContactUsPage: React.FC = () => {
             <Text className="text-text-200 mb-1">
               📍 123 Farm Lane, Greenfield, Country
             </Text>
-            <Text className="text-text-200 mb-1">
-              📞 +1 (555) 123-4567
-            </Text>
-            <Text className="text-text-200 mb-1">
-              ✉️ support@agrisense.com
-            </Text>
+            <Text className="text-text-200 mb-1">📞 +1 (555) 123-4567</Text>
+            <Text className="text-text-200 mb-1">✉️ support@agrisense.com</Text>
           </View>
           <Text className="text-3xl mb-4 text-text-200 font-semibold">
-              Email Us
-            </Text>
+            Email Us
+          </Text>
           <TextInput
+            className="border border-grey-200 rounded-lg p-3 mb-4 "
             style={styles.input}
             placeholder="Your Name"
             value={name}
@@ -87,11 +84,13 @@ const ContactUsPage: React.FC = () => {
             editable={!submitting}
           />
           <TouchableOpacity
-            style={[styles.button, submitting && styles.buttonDisabled]}
+            className={`bg-primary-400 py-3 rounded-lg items-center ${
+              submitting && "opacity-50"
+            }`}
             onPress={handleSubmit}
             disabled={submitting}
           >
-            <Text style={styles.buttonText}>
+            <Text className="text-background text-lg font-bold">
               {submitting ? "Sending..." : "Send Message"}
             </Text>
           </TouchableOpacity>

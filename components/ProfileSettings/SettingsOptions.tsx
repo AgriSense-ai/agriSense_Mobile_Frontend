@@ -4,14 +4,17 @@ import SetttingRow from "../gardenManagement/GardenSettings/SetttingRow";
 
 const SettingsOptions: React.FC = () => {
   return (
-    <View style={styles.card}>
+    <View
+      className="mt-5 bg-white p-7 rounded-3xl w-[85%]"
+
+    >
       <SetttingRow label="Dark Mode" value={true} />
       <SetttingRow
         label="Payment Methods"
         route="/(tabs)/profileSettings/paymentMethods"
       />
-      <SetttingRow label="Notifications" />
-      <SetttingRow label="Language" />
+      <SetttingRow label="Language" 
+      route="/(tabs)/profileSettings/Language"/>
       <SetttingRow
         label="Change Password"
         route="/(authentication)/changePassword"

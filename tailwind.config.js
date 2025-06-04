@@ -40,6 +40,7 @@ module.exports = {
       background: themeColor.mint_cream,
       red: themeColor.engineering_orange,
       yellow: themeColor.icterine,
+      white: themeColor.white,
     },
     fontFamily: {
       // Define your custom fonts here
