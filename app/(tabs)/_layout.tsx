@@ -65,7 +65,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profileSettings/index"
+        name="profileSettings"
         options={{
           title: "Settings",
           tabBarIcon: ({ color }) => (
@@ -82,13 +82,6 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="gardenResources"
-        options={{
-          href: null,
-          title: "Garden Resources",
-        }}
-      />
-      <Tabs.Screen
-        name="profileSettings/paymentMethods"
         options={{
           href: null,
           title: "Garden Resources",

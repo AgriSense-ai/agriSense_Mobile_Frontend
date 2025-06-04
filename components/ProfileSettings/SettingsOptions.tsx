@@ -16,7 +16,10 @@ const SettingsOptions: React.FC = () => {
         label="Change Password"
         route="/(authentication)/changePassword"
       />
-      <SetttingRow label="Contact Us" />
+      <SetttingRow
+        label="Contact Us"
+        route="/(tabs)/profileSettings/ContactUsPage"
+      />
     </View>
   );
 };
