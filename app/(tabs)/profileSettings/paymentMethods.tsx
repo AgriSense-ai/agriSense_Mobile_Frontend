@@ -49,7 +49,7 @@ const PaymentMethods: React.FC = () => {
           <Text className="text-xl color-text-200 mb-4">
             Select Mobile Network
           </Text>
-          <View className="flex-row mb-6">
+          <View className="flex-row mb-3">
             <PaymentOptions
               name="Airtel"
               onPress={() => handleSelectNetwork("Airtel")}
@@ -59,9 +59,24 @@ const PaymentMethods: React.FC = () => {
               onPress={() => handleSelectNetwork("MTN")}
             />
           </View>
-          {selectedNetwork && <NumberInput />}
-          <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-            <Text style={styles.saveButtonText}>Make Payment</Text>
+          {selectedNetwork && (
+            <>
+              <Text className="mb-2 text-base">Phone Number</Text>
+              <TextInput
+                className="w-full h-12 px-4 border border-gray-300 rounded-lg"
+                placeholder="e.g. 07XXXXXXXX"
+                keyboardType="phone-pad"
+                value={phoneNumber}
+                onChangeText={setPhoneNumber}
+                maxLength={10}
+              />
+            </>
+          )}
+          <TouchableOpacity
+            className="bg-primary-700 py-4 rounded-lg items-center mt-4"
+            onPress={handleSave}
+          >
+            <Text className="text-white text-base font-bold">Make Payment</Text>
           </TouchableOpacity>
         </View>
       </View>
