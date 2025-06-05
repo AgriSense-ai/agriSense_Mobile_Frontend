@@ -12,7 +12,6 @@ import {
   Pressable,
 } from "react-native";
 
-
 interface Message {
   id: string;
   text: string;
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "transparent",
     bottom: 80,
-    position: "absolute",
+    position: "relative",
     minWidth: "100%",
   },
   messagesList: { padding: 16, flexGrow: 1, justifyContent: "flex-end" },

@@ -4,8 +4,8 @@
     "slug": "AgriSense",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/Logo/icon.png",
-    "scheme": "AgriSense",
+    "icon": "./assets/images/icons/typoLogo.png",
+    "scheme": "agrisense",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -14,24 +14,17 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/Logo/1.png",
+        "foregroundImage": "./assets/images/icons/1.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "config": {
-        "googleMapsApiKey": "process.env.GOOGLE_MAPS_API_KEY"
-      },
-      "permissions": [
-        "android.permission.ACCESS_COARSE_LOCATION",
-        "android.permission.ACCESS_FINE_LOCATION"
-      ],
       "package": "com.conradkash.AgriSense",
       "versionCode": 2
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/logo/icon.png"
+      "favicon": "./assets/images/icons/icon.png"
     },
     "plugins": [
       "expo-router",
