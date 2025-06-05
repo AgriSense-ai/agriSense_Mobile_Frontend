@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Colors } from "@/constants/Colors";
 
-const logoImage = require("@/assets/images/Logo/typoLogo.png");
+const logoImage = require("@/assets/images/icons/typoLogo.png");
 const backImage = require("@/assets/images/SVGs/PlantIntro.png");
 const color = Colors.light.tint;
 
@@ -25,7 +25,7 @@ function navBarLayout() {
   };
 
   const handlePressLogo = () => {
-    router.push("/profile");
+    router.push("/(tabs)/profileSettings");
     console.log("Logo pressed");
   };
 

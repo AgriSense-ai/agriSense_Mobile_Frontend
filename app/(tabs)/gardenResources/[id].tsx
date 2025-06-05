@@ -10,7 +10,6 @@ import { ThemedView } from "@/components/ThemedView";
 import { Crop } from "@/constants/data/Crops";
 import CropCategory from "@/components/gardenResources/cropCategory";
 
-const gardenManagementImage = require("@/assets/images/Logo/Agri-Solution.jpg");
 import { useState } from "react";
 
 const CropResourceScreen = () => {

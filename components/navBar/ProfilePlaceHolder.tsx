@@ -1,7 +1,7 @@
 import { StyleSheet, Image, View } from "react-native";
 import React from "react";
 
-const profileImage = require("@/assets/images/Logo/profile.png");
+const profileImage = require("@/assets/images/icons/profile.png");
 
 const ProfilePlaceHolder = () => {
   return (
