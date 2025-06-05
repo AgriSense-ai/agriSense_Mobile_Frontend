@@ -6,10 +6,9 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Colors } from "@/constants/Colors";
 
 const logoImage = require("@/assets/images/icons/typoLogo.png");
-const backImage = require("@/assets/images/SVGs/PlantIntro.png");
 const color = Colors.light.tint;
 
-function navBarLayout() {
+function NavBarLayout() {
   const router = useRouter();
   const navigation = useNavigation();
   const pathname = usePathname();
@@ -69,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default navBarLayout;
+export default NavBarLayout;

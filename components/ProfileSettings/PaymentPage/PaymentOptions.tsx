@@ -10,6 +10,7 @@ const PaymentOptions: React.FC<PaymentOptionsProps> = ({ name, onPress }) => {
   const [selectedNetwork, setSelectedNetwork] = useState<
     "MTN" | "Airtel" | null
   >(null);
+  
 
   return (
     <TouchableOpacity

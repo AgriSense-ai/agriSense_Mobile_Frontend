@@ -3,8 +3,6 @@ import React from "react";
 import SettingDivider from "./SettingDivider";
 import ToggleButton from "./ToggleButton";
 import NavIcon from "@/components/ui/NavIcon";
-import { routePatternToRegex } from "expo-router/build/fork/getStateFromPath-forks";
-ToggleButton;
 
 interface SettingRowProps {
   label: string;

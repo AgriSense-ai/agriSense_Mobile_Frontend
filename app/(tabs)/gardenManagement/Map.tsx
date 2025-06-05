@@ -1,7 +1,6 @@
-import { StyleSheet, Platform, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Platform, View } from "react-native";
 import AddGardenMap from "@/components/gardenManagement/addGardenMap";
-import NavBarLayout from "@/components/navBar/navBarLayout";
+import NavBarLayout from "@/components/navBar/NavBarLayout";
 
 const Map = () => {
   return (
@@ -15,5 +14,3 @@ const Map = () => {
 };
 
 export default Map;
-
-const styles = StyleSheet.create({});

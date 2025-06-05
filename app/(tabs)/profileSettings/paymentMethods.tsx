@@ -1,17 +1,7 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  TextInput,
-  Alert,
-  SafeAreaView,
-  ScrollView,
-} from "react-native";
+import { View, Text, TouchableOpacity, TextInput, Alert } from "react-native";
 import "../../../global.css";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
-import NumberInput from "@/components/ProfileSettings/PaymentPage/NumberInput";
 import PaymentOptions from "@/components/ProfileSettings/PaymentPage/PaymentOptions";
 type Network = "MTN" | "Airtel";
 
@@ -20,10 +10,13 @@ const PaymentMethods: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleSelectNetwork = (network: Network) => {
-    setSelectedNetwork(network);
-    selectedNetwork === network
-      ? setSelectedNetwork(null) // Deselect if already selected
-      : setSelectedNetwork(network);
+    if (selectedNetwork === network) {
+      // Deselect the network if it is already selected
+      setSelectedNetwork(null);
+    } else {
+      setSelectedNetwork(network);
+    }
+
     setPhoneNumber("");
   };
 
@@ -83,58 +76,5 @@ const PaymentMethods: React.FC = () => {
     </BackgroundLayout>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    minWidth: "80%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 80,
-  },
-  inner: { padding: 24, flexGrow: 1, justifyContent: "center" },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 32,
-    textAlign: "center",
-  },
-  label: { fontSize: 16, marginBottom: 8 },
-  networkContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 24,
-  },
-  networkButton: {
-    flex: 1,
-    padding: 16,
-    marginHorizontal: 8,
-    backgroundColor: "#f2f2f2",
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  selectedNetwork: {
-    backgroundColor: "#ffe082",
-    borderColor: "#ffd600",
-    borderWidth: 2,
-  },
-  networkText: { fontSize: 16, fontWeight: "600" },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    padding: 12,
-    fontSize: 16,
-    marginBottom: 24,
-  },
-  saveButton: {
-    backgroundColor: "#388e3c",
-    padding: 16,
-    borderRadius: 8,
-    alignItems: "center",
-    marginTop: 16,
-  },
-  saveButtonText: { color: "#fff", fontSize: 16, fontWeight: "bold" },
-});
 
 export default PaymentMethods;

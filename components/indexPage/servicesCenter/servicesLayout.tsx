@@ -22,7 +22,9 @@ function ServicesLayout() {
   const router = useRouter();
   const handlePress = (route: string) => {
     try {
-      route ? router.push(route as any) : null;
+      if (route) {
+        router.push(route as any);
+      }
       console.log("Route tapped:", route);
     } catch (error) {
       console.error("Error navigating to route:", error);
@@ -43,10 +45,7 @@ function ServicesLayout() {
       <View style={styles.card}>
         {Services.map((service, index) => (
           <Pressable key={index} onPress={() => handlePress(service.route)}>
-            <IntroCard
-              label={service.label}
-              image={service.image}
-            />
+            <IntroCard label={service.label} image={service.image} />
           </Pressable>
         ))}
       </View>

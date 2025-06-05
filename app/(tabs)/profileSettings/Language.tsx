@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import SetttingRow from "@/components/gardenManagement/GardenSettings/SetttingRow";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
 
@@ -32,5 +32,3 @@ const Language = () => {
 };
 
 export default Language;
-
-const styles = StyleSheet.create({});

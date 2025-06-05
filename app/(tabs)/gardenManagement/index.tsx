@@ -1,6 +1,8 @@
-import { StyleSheet, View, ImageBackground } from "react-native";
-import GardenLayout, { Gardens } from "@/components/gardenManagement/GardenLayout";
-import NavBarLayout from "@/components/navBar/navBarLayout";
+import { View, ImageBackground } from "react-native";
+import GardenLayout, {
+  Gardens,
+} from "@/components/gardenManagement/GardenLayout";
+import NavBarLayout from "@/components/navBar/NavBarLayout";
 import ProgressCard from "@/components/gardenManagement/progressCard";
 import AddGardenButton from "@/components/gardenManagement/AddGardenButton";
 import { Colors } from "@/constants/Colors";
@@ -34,15 +36,7 @@ export default function HomeScreen() {
         }}
       >
         <NavBarLayout />
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            paddingTop: -1,
-            marginTop: 10,
-          }}
-        >
+        <View className="flex-1 justify-start items-center pt-[-1] mt-3">
           <ProgressCard />
           <GardenLayout />
           <AddGardenButton count={Gardens.length} />
@@ -51,21 +45,3 @@ export default function HomeScreen() {
     </ImageBackground>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    opacity: 0.2,
-  },
-});

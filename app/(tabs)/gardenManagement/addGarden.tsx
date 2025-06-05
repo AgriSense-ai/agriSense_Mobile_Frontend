@@ -1,6 +1,5 @@
-import { StyleSheet, ImageBackground, View } from "react-native";
+import { ImageBackground } from "react-native";
 import AddGardenForm from "@/components/gardenManagement/AddGardenForm";
-import BackgroundLayout from "@/components/ui/BackgroundLayout";
 import { Colors } from "@/constants/Colors";
 
 const backgroundImage = require("@/assets/images/Background.png");
@@ -29,5 +28,3 @@ const addGarden = () => {
 };
 
 export default addGarden;
-
-const styles = StyleSheet.create({});

@@ -2,7 +2,6 @@ import { StyleSheet, ScrollView, View, Pressable } from "react-native";
 import IntroCard from "../indexPage/servicesCenter/servicesCard";
 import { ThemedText } from "../ThemedText";
 import { Colors } from "@/constants/Colors";
-import { useState } from "react";
 import { Crop } from "@/constants/data/Crops";
 import { useRouter } from "expo-router";
 
@@ -11,20 +10,14 @@ const gardenManagementImage = require("@/assets/images/SVGs/PlantIntro.png");
 const AvailableCrops = () => {
   const router = useRouter();
 
-  const [selectedCrop, setSelectedCrop] = useState<any>(
-    Crop.sort((a, b) => a.name.localeCompare(b.name))[0]?.name
-  );
-
   const handleCardPress = (cropRoute: string) => {
     try {
-      router ? router.push(cropRoute as any) : null;
+      if (router) {
+        router.push(cropRoute as any);
+      }
     } catch (error) {
       console.error("Error navigating to crop route:", error);
     }
-  };
-
-  const renderCropCard = ({ crop }: any) => {
-    return <IntroCard key={crop.id} label={crop.name} image={crop.image} />;
   };
 
   return (

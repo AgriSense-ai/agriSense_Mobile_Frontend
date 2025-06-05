@@ -8,7 +8,6 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
-  ScrollView,
 } from "react-native";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
 

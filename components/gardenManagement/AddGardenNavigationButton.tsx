@@ -28,9 +28,12 @@ const AddGardenNavigationButton = ({
   };
   const handleContinue = () => {
     if (type === "Continue" || type === "Save") {
-      route
-        ? (router.push(route as any), console.log("Continue button pressed"))
-        : console.warn("No route provided");
+      if (route) {
+        router.push(route as any);
+        console.log(`Navigating to ${route}`);
+      } else {
+        console.warn("No route provided");
+      }
     } else {
       console.error("Button not functioning correctly");
     }

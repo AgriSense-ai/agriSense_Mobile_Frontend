@@ -1,5 +1,5 @@
-import { StyleSheet, View, ImageBackground } from "react-native";
-import NavBarLayout from "@/components/navBar/navBarLayout";
+import { View, ImageBackground } from "react-native";
+import NavBarLayout from "@/components/navBar/NavBarLayout";
 import { Colors } from "@/constants/Colors";
 import GardenResorecesLayout from "@/components/gardenResources/gardenResorecesLayout";
 
@@ -47,21 +47,3 @@ export default function ResourceScreen() {
     </ImageBackground>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    opacity: 0.2,
-  },
-});

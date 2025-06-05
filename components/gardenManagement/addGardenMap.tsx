@@ -1,8 +1,7 @@
 import MapView, { Polygon, Marker } from "react-native-maps";
-import { StyleSheet, TouchableOpacity, View, ViewProps } from "react-native";
+import { StyleSheet, View, ViewProps } from "react-native";
 import { useEffect, useState } from "react";
 import * as Location from "expo-location";
-import { MaterialIcons } from "@expo/vector-icons";
 import AddGardenNavigationButton from "./AddGardenNavigationButton";
 
 import { Coordinates } from "../../constants/data/Coordinates";
@@ -67,7 +66,7 @@ export default function AddGardenMap({
   useEffect(() => {
     // Get the user's location
     userLocation();
-  }, []);
+  });
 
   return (
     <View {...rest} style={[styles.root, style]}>

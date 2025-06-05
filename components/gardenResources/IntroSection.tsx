@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { ThemedText } from "../ThemedText";
 import { Colors } from "@/constants/Colors";
 
@@ -19,9 +19,9 @@ export default IntroSection;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:'5%',
+    paddingTop: "5%",
     alignItems: "flex-start",
-    width: '90%'
+    width: "90%",
   },
   textTitle: {
     fontSize: 24,

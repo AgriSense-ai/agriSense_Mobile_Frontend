@@ -1,5 +1,5 @@
 import { StyleSheet, Text, Image } from "react-native";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 
 import AddGardenNavigationButton from "@/components/gardenManagement/AddGardenNavigationButton";
 import { Collapsible } from "@/components/Collapsible";
@@ -10,14 +10,10 @@ import { ThemedView } from "@/components/ThemedView";
 import { Crop } from "@/constants/data/Crops";
 import CropCategory from "@/components/gardenResources/cropCategory";
 
-import { useState } from "react";
-
 const CropResourceScreen = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const [todo, setTodo] = useState<any>({});
 
   const interestCrop = Crop.filter((crop) => crop.id === Number(id))[0];
-  const router = useRouter();
 
   return (
     <ParallaxScrollView

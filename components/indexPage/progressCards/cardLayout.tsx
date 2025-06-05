@@ -2,19 +2,14 @@ import CardCases from "./card";
 
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { ThemedView } from "@/components/ThemedView";
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { Colors } from "@/constants/Colors";
-import { Collapsible } from "@/components/Collapsible"; 
-
 
 const CardLayout = () => {
   return (
-        <View style={styles.cardContainer}>
-          <CardCases number={100} label="Total" />
-          <CardCases number={50} label="Completed" />
-          <CardCases number={30} label="In Progress" />
-        </View>
+    <View style={styles.cardContainer}>
+      <CardCases number={100} label="Total" />
+      <CardCases number={50} label="Completed" />
+      <CardCases number={30} label="In Progress" />
+    </View>
   );
 };
 const styles = StyleSheet.create({
@@ -29,7 +24,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5, // For Android shadow
   },
-    cardContainer: {
+  cardContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -41,6 +36,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 5, // For Android shadow
-    },
+  },
 });
 export default CardLayout;

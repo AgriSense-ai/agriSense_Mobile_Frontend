@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable } from "react-native";
+import { Pressable } from "react-native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { Colors } from "@/constants/Colors";
 import React from "react";
@@ -39,5 +39,3 @@ const NavIcon = ({ size = 18, route, weight = "heavy" }: NavIconProps) => {
 };
 
 export default NavIcon;
-
-const styles = StyleSheet.create({});

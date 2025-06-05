@@ -1,14 +1,12 @@
 import React from "react";
-import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
-import { useRouter } from "expo-router";
+import { StyleSheet, View, Image, Text } from "react-native";
 
 interface CardProps {
   image: any;
   label: string;
 }
 
-function introCard({ label, image }: CardProps) {
-  const router = useRouter();
+function IntroCard({ label, image }: CardProps) {
   return (
     <View style={styles.cardContainer}>
       <Image source={image} style={styles.cardImage} />
@@ -48,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default introCard;
+export default IntroCard;

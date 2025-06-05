@@ -18,3 +18,5 @@ const crossPlatformShadow = {
   ...iosShadowStyle,
   ...androidShadowStyle,
 };
+
+export default crossPlatformShadow;
