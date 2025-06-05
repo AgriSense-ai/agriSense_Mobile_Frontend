@@ -12,7 +12,6 @@ import {
   Pressable,
 } from "react-native";
 
-import { Ollama } from "ollama";
 
 interface Message {
   id: string;
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "transparent",
     bottom: 80,
-    position: "fixed",
+    position: "absolute",
     minWidth: "100%",
   },
   messagesList: { padding: 16, flexGrow: 1, justifyContent: "flex-end" },
