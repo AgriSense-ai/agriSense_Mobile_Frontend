@@ -1,5 +1,7 @@
 import { Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 interface PaymentOptionsProps {
   name: "MTN" | "Airtel";
@@ -7,11 +9,9 @@ interface PaymentOptionsProps {
 }
 
 const PaymentOptions: React.FC<PaymentOptionsProps> = ({ name, onPress }) => {
-  const [selectedNetwork, setSelectedNetwork] = useState<
-    "MTN" | "Airtel" | null
-  >(null);
-  
-
+  const selectedNetwork = useSelector(
+    (state: RootState) => state.paymentData.selectedNetwork
+  );
   return (
     <TouchableOpacity
       onPress={onPress}

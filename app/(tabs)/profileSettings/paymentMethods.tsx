@@ -3,21 +3,25 @@ import { View, Text, TouchableOpacity, TextInput, Alert } from "react-native";
 import "../../../global.css";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
 import PaymentOptions from "@/components/ProfileSettings/PaymentPage/PaymentOptions";
+import NumberInput from "@/components/ProfileSettings/PaymentPage/NumberInput";
+import { useSelector, useDispatch } from "react-redux";
+import { paymentNetworkAction, paymentNumberAction } from "@/store/userPayment";
+import { RootState } from "@/store/store";
 type Network = "MTN" | "Airtel";
 
 const PaymentMethods: React.FC = () => {
-  const [selectedNetwork, setSelectedNetwork] = useState<Network | null>(null);
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const{ phoneNumber, selectedNetwork} = useSelector((state:RootState) => state.paymentData);
+  const dispatch = useDispatch();
 
   const handleSelectNetwork = (network: Network) => {
     if (selectedNetwork === network) {
       // Deselect the network if it is already selected
-      setSelectedNetwork(null);
+      dispatch(paymentNetworkAction(null));
     } else {
-      setSelectedNetwork(network);
+      dispatch(paymentNetworkAction(network));
     }
 
-    setPhoneNumber("");
+    dispatch(paymentNumberAction("")); // Reset phone number when network changes
   };
 
   const handleSave = () => {
@@ -40,7 +44,7 @@ const PaymentMethods: React.FC = () => {
             Add Payment Method
           </Text>
           <Text className="text-xl color-text-200 mb-4">
-            Select Mobile Network
+            Select Payment Channel
           </Text>
           <View className="flex-row mb-3">
             <PaymentOptions
@@ -52,19 +56,7 @@ const PaymentMethods: React.FC = () => {
               onPress={() => handleSelectNetwork("MTN")}
             />
           </View>
-          {selectedNetwork && (
-            <>
-              <Text className="mb-2 text-base">Phone Number</Text>
-              <TextInput
-                className="w-full h-12 px-4 border border-gray-300 rounded-lg"
-                placeholder="e.g. 07XXXXXXXX"
-                keyboardType="phone-pad"
-                value={phoneNumber}
-                onChangeText={setPhoneNumber}
-                maxLength={10}
-              />
-            </>
-          )}
+          {selectedNetwork && <NumberInput />}
           <TouchableOpacity
             className="bg-primary-700 py-4 rounded-lg items-center mt-4"
             onPress={handleSave}
