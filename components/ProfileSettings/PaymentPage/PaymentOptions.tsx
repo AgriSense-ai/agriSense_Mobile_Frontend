@@ -10,15 +10,15 @@ interface PaymentOptionsProps {
 
 const PaymentOptions: React.FC<PaymentOptionsProps> = ({ name, onPress }) => {
   const selectedNetwork = useSelector(
-    (state: RootState) => state.paymentData.selectedNetwork
+    (state: RootState) => state.paymentData.networkName
   );
   return (
     <TouchableOpacity
       onPress={onPress}
       className={`flex-1 mx-2 p-4  items-center rounded-lg ${
-        selectedNetwork === "MTN"
+        selectedNetwork === "MTN" && name === "MTN"
           ? "bg-yellow border-2 border-yellow-900"
-          : selectedNetwork === "Airtel"
+          : selectedNetwork === "Airtel" && name === "Airtel"
           ? "bg-red-700 border-2 border-red-900"
           : "bg-grey-800"
       }`}

@@ -4,13 +4,24 @@ import {
   PAYMENT_STATUS_ACTION,
 } from "./types";
 
-const initialState = {
-  selectedNetwork: null,
-  phoneNumber: "",
-  paymentStatus: true,
+type PaymentState = {
+  networkName: string | null;
+  number: string;
+  status: boolean;
 };
 
-export default (state = initialState, { type, payload }: { type: string; payload: any }) => {
+const initialState: PaymentState = {
+  networkName: null,
+  number: "",
+  status: true,
+};
+
+type PaymentAction = {
+  type: string;
+  payload: any;
+};
+
+export default (state = initialState, { type, payload }: PaymentAction) => {
   switch (type) {
     case PAYMENT_NETWORK_ACTION:
       return {

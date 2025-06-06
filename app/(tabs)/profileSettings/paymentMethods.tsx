@@ -10,8 +10,11 @@ import { RootState } from "@/store/store";
 type Network = "MTN" | "Airtel";
 
 const PaymentMethods: React.FC = () => {
-  const{ phoneNumber, selectedNetwork} = useSelector((state:RootState) => state.paymentData);
+  // const [selectedNetwork, setSelectedNetwork] = useState<Network | null>(null);
+  const selectedNetwork = useSelector((state: RootState) => state.paymentData.networkName);
+  const phoneNumber = useSelector((state:RootState) => state.paymentData.number);
   const dispatch = useDispatch();
+  // const [phoneNumber, setPhoneNumber] = useState("");
 
   const handleSelectNetwork = (network: Network) => {
     if (selectedNetwork === network) {
@@ -57,12 +60,7 @@ const PaymentMethods: React.FC = () => {
             />
           </View>
           {selectedNetwork && <NumberInput />}
-          <TouchableOpacity
-            className="bg-primary-700 py-4 rounded-lg items-center mt-4"
-            onPress={handleSave}
-          >
-            <Text className="text-white text-base font-bold">Make Payment</Text>
-          </TouchableOpacity>
+
         </View>
       </View>
     </BackgroundLayout>
