@@ -1,27 +1,49 @@
-import {
-  CameraMode,
-  CameraType,
-  CameraView,
-  useCameraPermissions,
-} from "expo-camera";
+import { CameraView, useCameraPermissions } from "expo-camera";
 import { useRef, useState } from "react";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { Image } from "expo-image";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import Feather from "@expo/vector-icons/Feather";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import NavBarLayout from "@/components/navBar/NavBarLayout";
+import * as ImagePicker from "expo-image-picker";
+import axios from "axios";
 
 export default function App() {
   const [permission, requestPermission] = useCameraPermissions();
   const ref = useRef<CameraView>(null);
   const [uri, setUri] = useState<string | null>(null);
-  const [mode, setMode] = useState<CameraMode>("picture");
-  const [facing, setFacing] = useState<CameraType>("back");
-  const [recording, setRecording] = useState(false);
-
+  const formData = new FormData();
   if (!permission) {
     return null;
   }
+
+  const uploadImage = async (imageUri: string) => {
+    console.log("Uploading image:", imageUri);
+    try {
+      formData.append("file", {
+        uri: imageUri,
+        type: "image/jpeg",
+        name: "image.jpg",
+      } as any);
+      console.log("Form data prepared for upload:", formData);
+      // FormData entries method not available in React Native
+
+      const response = await axios.post(
+        "https://af2a-41-210-155-111.ngrok-free.app/predict",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("Image uploaded successfully:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      throw error;
+    }
+    console.log("Image upload completed");
+  };
 
   if (!permission.granted) {
     return (
@@ -36,26 +58,22 @@ export default function App() {
 
   const takePicture = async () => {
     const photo = await ref.current?.takePictureAsync();
-    setUri(photo?.uri ?? null);
-  };
-
-  const recordVideo = async () => {
-    if (recording) {
-      setRecording(false);
-      ref.current?.stopRecording();
-      return;
+    try {
+      if (photo?.uri) {
+        console.log("Photo taken:", photo.uri);
+        try {
+          const prediction = await uploadImage(photo.uri);
+          console.log("Prediction:", prediction);
+        } catch (error) {
+          console.error("Error during image upload:", error);
+        }
+        setUri(photo?.uri ?? null);
+      } else {
+        console.log("No photo URI returned");
+      }
+    } catch (error) {
+      console.error("Error taking picture:", error);
     }
-    setRecording(true);
-    const video = await ref.current?.recordAsync();
-    console.log({ video });
-  };
-
-  const toggleMode = () => {
-    setMode((prev) => (prev === "picture" ? "video" : "picture"));
-  };
-
-  const toggleFacing = () => {
-    setFacing((prev) => (prev === "back" ? "front" : "back"));
   };
 
   const renderPicture = () => {
@@ -73,20 +91,11 @@ export default function App() {
       <CameraView
         style={styles.camera}
         ref={ref}
-        mode={mode}
-        facing={facing}
         mute={false}
         responsiveOrientationWhenOrientationLocked
       >
-        <View style={styles.shutterContainer}>
-          <Pressable onPress={toggleMode}>
-            {mode === "picture" ? (
-              <AntDesign name="picture" size={32} color="white" />
-            ) : (
-              <Feather name="video" size={32} color="white" />
-            )}
-          </Pressable>
-          <Pressable onPress={mode === "picture" ? takePicture : recordVideo}>
+        <View className="flex-1 items-center justify-center bottom-[-35%]">
+          <Pressable onPress={takePicture}>
             {({ pressed }) => (
               <View
                 style={[
@@ -100,15 +109,12 @@ export default function App() {
                   style={[
                     styles.shutterBtnInner,
                     {
-                      backgroundColor: mode === "picture" ? "white" : "red",
+                      backgroundColor: "white",
                     },
                   ]}
                 />
               </View>
             )}
-          </Pressable>
-          <Pressable onPress={toggleFacing}>
-            <FontAwesome6 name="rotate-left" size={32} color="white" />
           </Pressable>
         </View>
       </CameraView>
