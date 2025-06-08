@@ -7,8 +7,8 @@ import BackgroundLayout from "@/components/ui/BackgroundLayout";
 export default function HomeScreen() {
   return (
     <BackgroundLayout>
-      <View className="flex-1 justify-end items-center pt-2">
-        <View className="flex-1 justify-start items-center pt-2 mt-3">
+      <View className="flex-1 justify-end items-center">
+        <View className="flex-1 justify-start items-center ios:mt-9">
           <ProgressLayout />
           <CardLayout />
           <ServicesLayout />

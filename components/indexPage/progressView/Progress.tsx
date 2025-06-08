@@ -1,3 +1,4 @@
+import { ThemedText } from "@/components/ThemedText";
 import { Colors } from "@/constants/Colors";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
@@ -34,7 +35,6 @@ const ProgressPie: React.FC<ProgressPieProps> = ({
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.3,
           shadowRadius: 6,
-          elevation: 5, // For Android shadow
           borderRadius: 11,
         }}
       >

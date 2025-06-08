@@ -31,7 +31,7 @@ function ServicesLayout() {
     }
   };
   return (
-    <View className="flex-1 justify-start items-left pt-5">
+    <View className="flex-1 justify-start items-left pt-2">
       <ThemedText type="title">Services</ThemedText>
       <View className="flex-row min-w-[90%] justify-between mt-4 rounded-lg shadow-md">
         {Services.map((service, index) => (
