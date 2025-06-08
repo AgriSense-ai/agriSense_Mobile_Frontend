@@ -5,12 +5,7 @@ const ProgressLayout = () => {
   return (
     <>
       <ProgressPie progress={65} />
-      <ThemedText
-        style={{ fontSize: 23, fontWeight: "bold", paddingBottom: 20 }}
-        type="title"
-      >
-        Garden Progress 🌴
-      </ThemedText>
+      <ThemedText type="title">Garden Progress 🌴</ThemedText>
     </>
   );
 };
