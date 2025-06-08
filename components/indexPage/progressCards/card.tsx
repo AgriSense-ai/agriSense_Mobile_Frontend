@@ -1,3 +1,4 @@
+import { ThemedText } from "@/components/ThemedText";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -6,9 +7,9 @@ const CardCases: React.FC<{ number: number; label: string }> = ({
   label,
 }) => {
   return (
-    <View style={styles.card}>
-      <Text style={styles.number}>{number}</Text>
-      <Text style={styles.label}>{label}</Text>
+    <View className="w-[28%] h-[105px] bg-white rounded-xl justify-center items-center shadow-sm">
+      <ThemedText type="title">{number}</ThemedText>
+      <ThemedText type="small">{label}</ThemedText>
     </View>
   );
 };

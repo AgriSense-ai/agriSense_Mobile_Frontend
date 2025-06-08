@@ -1,53 +1,21 @@
-import { View, ImageBackground } from "react-native";
+import { View } from "react-native";
 import CardLayout from "@/components/indexPage/progressCards/cardLayout";
 import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
 import ServicesLayout from "@/components/indexPage/servicesCenter/servicesLayout";
-import NavBarLayout from "@/components/navBar/NavBarLayout";
-import { Colors } from "../../constants/Colors";
+import BackgroundLayout from "@/components/ui/BackgroundLayout";
 
 const backgroundImage = require("@/assets/images/Background.png");
 
 export default function HomeScreen() {
   return (
-    <ImageBackground
-      source={backgroundImage}
-      resizeMode="stretch"
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: Colors.light.background,
-      }}
-      imageStyle={{
-        opacity: 0.2,
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "flex-end",
-          alignItems: "center",
-          paddingTop: 50,
-        }}
-      >
-        <NavBarLayout />
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            paddingTop: -1,
-            marginTop: 10,
-          }}
-        >
+    <BackgroundLayout>
+      <View className="flex-1 justify-end items-center pt-2">
+        <View className="flex-1 justify-start items-center pt-2 mt-3">
           <ProgressLayout />
           <CardLayout />
           <ServicesLayout />
         </View>
       </View>
-    </ImageBackground>
+    </BackgroundLayout>
   );
 }

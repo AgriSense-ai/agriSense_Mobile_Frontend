@@ -5,7 +5,13 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link";
+  type?:
+    | "default"
+    | "title"
+    | "defaultSemiBold"
+    | "subtitle"
+    | "link"
+    | "small";
 };
 
 export function ThemedText({
@@ -21,15 +27,17 @@ export function ThemedText({
     <Text
       className={
         color + type === "default"
-          ? "text-base"
+          ? "text-base text-primary-200"
           : type === "title"
-          ? "text-2xl font-bold"
+          ? "text-2xl font-bold text-primary-200"
           : type === "defaultSemiBold"
-          ? "text-base font-semibold"
+          ? "text-base font-semibold text-primary-300"
           : type === "subtitle"
           ? "text-lg font-bold"
           : type === "link"
           ? "text-base text-primary underline"
+          : type === "small"
+          ? "text-sm text-primary-400 p-1"
           : ""
       }
       {...rest}
