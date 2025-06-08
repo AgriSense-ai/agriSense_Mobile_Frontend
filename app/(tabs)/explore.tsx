@@ -1,6 +1,7 @@
+import { ThemedText } from "@/components/ThemedText";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
-import { Colors } from "@/constants/Colors";
 import React, { useState, useRef, useEffect } from "react";
+import { remapProps } from "nativewind";
 import {
   View,
   TextInput,
@@ -8,9 +9,12 @@ import {
   Text,
   KeyboardAvoidingView,
   Platform,
-  StyleSheet,
   Pressable,
 } from "react-native";
+
+remapProps(FlatList, {
+  contentContainerClassName: "contentContainerStyle",
+});
 
 interface Message {
   id: string;
@@ -57,96 +61,47 @@ const ExploreChatScreen: React.FC = () => {
 
   const renderItem = ({ item }: { item: Message }) => (
     <View
-      style={[
-        styles.messageContainer,
-        item.sender === "user" ? styles.userMessage : styles.botMessage,
-      ]}
+      className={`m-1 p-3 min-w-[80%] rounded-lg ${item.sender === "user" ? "bg-background-400 self-end" : "bg-tabIconDefault-900 self-start"}`}
     >
-      <Text style={styles.messageText}>{item.text}</Text>
+      <ThemedText type="default">{item.text}</ThemedText>
     </View>
   );
 
   return (
     <BackgroundLayout>
       <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        className="flex-1 bg-transparent bottom-20, relative min-w-[100%]"
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 30 : 0}
       >
         <FlatList
           ref={flatListRef}
           data={messages}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-          contentContainerStyle={styles.messagesList}
+          contentContainerClassName="p-4 flex-grow justify-end "
         />
-        <View style={styles.inputContainer}>
+        <View className="flex-row px-2 bg-transparent items-center pb-[20%] mx-[5%]">
           <TextInput
-            style={styles.input}
+            className="flex-1 border border-tabIconDefault-600 rounded-xl h-[45px] px-4 py-2 mr-2 text-base bg-white"
             value={input}
             onChangeText={setInput}
             placeholder="Type your message..."
             onSubmitEditing={sendMessage}
             returnKeyType="send"
           />
-          <Pressable onPress={sendMessage} style={styles.sendButton}>
-            <Text style={{ color: "#ffff", fontSize: 16 }}>Send</Text>
+          <Pressable
+            onPress={sendMessage}
+            className="bg-primary-300 px-4 py-2 rounded-xl justify-center items-center"
+          >
+            <Text className=" color-secondary-900 text-lg font-semibold">
+              Send
+            </Text>
           </Pressable>
         </View>
       </KeyboardAvoidingView>
     </BackgroundLayout>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "transparent",
-    bottom: 80,
-    position: "relative",
-    minWidth: "100%",
-  },
-  messagesList: { padding: 16, flexGrow: 1, justifyContent: "flex-end" },
-  messageContainer: {
-    marginVertical: 4,
-    padding: 10,
-    borderRadius: 12,
-    minWidth: "80%",
-  },
-  userMessage: {
-    backgroundColor: "#DCF8C6",
-    alignSelf: "flex-end",
-  },
-  botMessage: {
-    backgroundColor: "#ECECEC",
-    alignSelf: "flex-start",
-  },
-  messageText: { fontSize: 16 },
-  inputContainer: {
-    flexDirection: "row",
-    padding: 8,
-    backgroundColor: "transparent",
-    alignItems: "center",
-  },
-  input: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    height: 45,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    marginRight: 8,
-    fontSize: 16,
-    backgroundColor: "#fff",
-  },
-  sendButton: {
-    backgroundColor: Colors.light.text,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 8,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
 export default ExploreChatScreen;
