@@ -2,8 +2,6 @@ import { CameraView, useCameraPermissions } from "expo-camera";
 import { useRef, useState } from "react";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { Image } from "expo-image";
-import NavBarLayout from "@/components/navBar/NavBarLayout";
-import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
 
 export default function App() {
@@ -42,7 +40,6 @@ export default function App() {
       console.error("Error uploading image:", error);
       throw error;
     }
-    console.log("Image upload completed");
   };
 
   if (!permission.granted) {

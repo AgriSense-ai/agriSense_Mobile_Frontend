@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, Alert } from "react-native";
+import React from "react";
+import { View, Text } from "react-native";
 import "../../../global.css";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
 import PaymentOptions from "@/components/ProfileSettings/PaymentPage/PaymentOptions";
@@ -11,8 +11,9 @@ type Network = "MTN" | "Airtel";
 
 const PaymentMethods: React.FC = () => {
   // const [selectedNetwork, setSelectedNetwork] = useState<Network | null>(null);
-  const selectedNetwork = useSelector((state: RootState) => state.paymentData.networkName);
-  const phoneNumber = useSelector((state:RootState) => state.paymentData.number);
+  const selectedNetwork = useSelector(
+    (state: RootState) => state.paymentData.networkName
+  );
   const dispatch = useDispatch();
   // const [phoneNumber, setPhoneNumber] = useState("");
 
@@ -25,18 +26,6 @@ const PaymentMethods: React.FC = () => {
     }
 
     dispatch(paymentNumberAction("")); // Reset phone number when network changes
-  };
-
-  const handleSave = () => {
-    if (!selectedNetwork || !phoneNumber.match(/^07\d{8}$/)) {
-      Alert.alert(
-        "Error",
-        "Please select a network and enter a valid Ugandan phone number."
-      );
-      return;
-    }
-    // Here you would typically save the payment method to backend or state
-    Alert.alert("Success", `Payment method for ${selectedNetwork} saved!`);
   };
 
   return (
@@ -60,7 +49,6 @@ const PaymentMethods: React.FC = () => {
             />
           </View>
           {selectedNetwork && <NumberInput />}
-
         </View>
       </View>
     </BackgroundLayout>

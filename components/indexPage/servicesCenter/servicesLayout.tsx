@@ -1,4 +1,4 @@
-import { View, StyleSheet, Pressable } from "react-native";
+import { View, Pressable } from "react-native";
 import IntroCard from "./servicesCard";
 import { ThemedText } from "@/components/ThemedText";
 import { useRouter } from "expo-router";
@@ -33,7 +33,7 @@ function ServicesLayout() {
   return (
     <View className="flex-1 justify-start items-left pt-5">
       <ThemedText type="title">Services</ThemedText>
-      <View className="flex-row min-w-[90%] justify-between items-center gap-5 p-4 rounded-lg shadow-md">
+      <View className="flex-row min-w-[90%] justify-between mt-4 rounded-lg shadow-md">
         {Services.map((service, index) => (
           <Pressable key={index} onPress={() => handlePress(service.route)}>
             <IntroCard label={service.label} image={service.image} />

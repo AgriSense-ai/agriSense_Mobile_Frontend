@@ -4,8 +4,6 @@ import ProgressLayout from "@/components/indexPage/progressView/progressLayout";
 import ServicesLayout from "@/components/indexPage/servicesCenter/servicesLayout";
 import BackgroundLayout from "@/components/ui/BackgroundLayout";
 
-const backgroundImage = require("@/assets/images/Background.png");
-
 export default function HomeScreen() {
   return (
     <BackgroundLayout>
