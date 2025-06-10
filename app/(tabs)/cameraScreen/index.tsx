@@ -1,24 +1,30 @@
 import { CameraView, useCameraPermissions } from "expo-camera";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { Image } from "expo-image";
 import axios from "axios";
 import CameraButton from "@/components/ui/CameraButton";
 import NavBarLayout from "@/components/navBar/NavBarLayout";
-
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "@/store/store";
+import { imageCaptureAction } from "@/store/imagePrediction";
+import LoadingPage from "./predictionPage";
+import { useRouter } from "expo-router";
 
 export default function App() {
-  // const APIURL = process.env.EXPO_PUBLIC_APIURL;
+  const uri = useSelector((state: RootState) => state.predictionData.imageUrl);
+  const dispatch = useDispatch();
   const [permission, requestPermission] = useCameraPermissions();
   const ref = useRef<CameraView>(null);
-  const [uri, setUri] = useState<string | null>(null);
   const formData = new FormData();
+  const router = useRouter();
   if (!permission) {
     return null;
   }
 
   const uploadImage = async (imageUri: string) => {
     console.log("Uploading image:", imageUri);
+    router.push("(tabs)/cameraScreen/predictionPage" as any);
     try {
       formData.append("file", {
         uri: imageUri,
@@ -68,23 +74,14 @@ export default function App() {
         } catch (error) {
           console.error("Error during image upload:", error);
         }
-        setUri(photo?.uri ?? null);
+        dispatch(imageCaptureAction(photo?.uri ?? null));
+        // setUri(photo?.uri ?? null);
       } else {
         console.log("No photo URI returned");
       }
     } catch (error) {
       console.error("Error taking picture:", error);
     }
-  };
-
-  const renderPicture = () => {
-    return (
-      <View style={styles.camera}>
-        {uri && (
-          <Image source={{ uri }} contentFit="fill" style={{ flex: 1 }} />
-        )}
-      </View>
-    );
   };
 
   const renderCamera = () => {
@@ -113,7 +110,7 @@ export default function App() {
       >
         <NavBarLayout />
       </View>
-      {uri ? renderPicture() : renderCamera()}
+      {renderCamera()}
     </View>
   );
 }
@@ -128,30 +125,5 @@ const styles = StyleSheet.create({
   camera: {
     flex: 1,
     width: "100%",
-  },
-  shutterContainer: {
-    position: "absolute",
-    bottom: 100,
-    left: 0,
-    width: "100%",
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 30,
-  },
-  shutterBtn: {
-    backgroundColor: "transparent",
-    borderWidth: 5,
-    borderColor: "white",
-    width: 85,
-    height: 85,
-    borderRadius: 45,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  shutterBtnInner: {
-    width: 70,
-    height: 70,
-    borderRadius: 50,
   },
 });
