@@ -5,8 +5,6 @@ import { RootState } from "@/store/store";
 import { paymentNumberAction } from "@/store/userPayment";
 
 const NumberInput: React.FC = () => {
-  // const [phoneNumber, setPhoneNumber] = useState("");
-
   const selectedNetwork = useSelector(
     (state: RootState) => state.paymentData.networkName
   );

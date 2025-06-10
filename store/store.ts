@@ -1,16 +1,11 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore } from "@reduxjs/toolkit";
 import paymentReducer from "./paymentReducer";
+import predictionReducer from "./predictionReducer";
 
 const rootReducer = combineReducers({
   paymentData: paymentReducer,
-  // networkName: (state = initialState.networkName, action) => {
-  //   switch (action.type) {
-  //     case "SET_NETWORK_NAME":
-  //       return action.payload;
-  //     default:
-  //       return state;
-  //   }
-  // },
+  predictionData: predictionReducer,
+
 });
 
 export const store = createStore(rootReducer);

@@ -1,9 +1,11 @@
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useRef, useState } from "react";
-import { Button, Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { Image } from "expo-image";
 import axios from "axios";
 import CameraButton from "@/components/ui/CameraButton";
+import NavBarLayout from "@/components/navBar/NavBarLayout";
+
 
 export default function App() {
   // const APIURL = process.env.EXPO_PUBLIC_APIURL;
@@ -95,58 +97,22 @@ export default function App() {
           responsiveOrientationWhenOrientationLocked
         />
         <CameraButton onPress={takePicture} />
-        {/* Uncomment the following section if you want to use a custom shutter button */}
-        {/* <View style={styles.shutterContainer}>
-          <Pressable onPress={takePicture}>
-            {({ pressed }) => (
-              <View
-                style={[
-                  styles.shutterBtn,
-                  {
-                    opacity: pressed ? 0.5 : 1,
-                  },
-                ]}
-              >
-                <View
-                  style={[
-                    styles.shutterBtnInner,
-                    {
-                      backgroundColor: "white",
-                    },
-                  ]}
-                />
-              </View>
-            )}
-          </Pressable>
-        {/* <View className="flex-1 items-center justify-center bottom-[-35%]">
-          <Pressable onPress={takePicture}>
-            {({ pressed }) => (
-              <View
-                style={[
-                  styles.shutterBtn,
-                  {
-                    opacity: pressed ? 0.5 : 1,
-                  },
-                ]}
-              >
-                <View
-                  style={[
-                    styles.shutterBtnInner,
-                    {
-                      backgroundColor: "white",
-                    },
-                  ]}
-                />
-              </View>
-            )}
-          </Pressable>
-        </View> */}
       </>
     );
   };
 
   return (
     <View style={styles.container}>
+      <View
+        style={{
+          position: "absolute",
+          alignItems: "center",
+          top: "5%",
+          zIndex: 10,
+        }}
+      >
+        <NavBarLayout />
+      </View>
       {uri ? renderPicture() : renderCamera()}
     </View>
   );
