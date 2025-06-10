@@ -1,29 +1,37 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import ProgressPie from "../indexPage/progressView/Progress";
+import ProfilePlaceHolder from "../navBar/ProfilePlaceHolder";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 const progressCard = () => {
+  const userData = useSelector((state: RootState) => state.userData);
+  const { name, phone, tier } = userData;
+  const settingsData: {
+    label: string;
+    value: string | number;
+    color?: string;
+  }[] = [
+    { label: "Name", value: name },
+    { label: "Number", value: "0" + phone },
+    { label: "Tier", value: tier, color: "#E8761C" },
+  ];
   return (
-    <View style={styles.progressCard}>
-      <ProgressPie
-        progress={20}
-        circleSize={50}
-        strokeWidt={20}
-        fontSize={22}
-      />
-      <View style={{ flex: 1, paddingLeft: 14, justifyContent: "center" }}>
-        <Text style={styles.progressLabel}>Progress</Text>
-        <Text style={styles.progressSub}>
-          <Text style={styles.boldLabel}>Total Area</Text>{" "}
-          <Text style={styles.area}>1.56 Acres</Text>
+    <View className="flex-row bg-white w-[87%] rounded-xl my-3 items-center shadow-md">
+      <ProfilePlaceHolder size="medium" shadow="shadow-md" />
+      <View className="pl-3 text-wrap">
+        <Text className="mb-2 pt-1 text-grey-100 font-semibold text-[17px]">
+          User Settings
         </Text>
-        <Text style={styles.progressSub}>
-          <Text style={styles.boldLabel}>Remaining Crops:</Text> 56
-        </Text>
-        <Text style={styles.progressSub}>
-          <Text style={styles.boldLabel}>Status:</Text>{" "}
-          <Text style={{ color: "#E8761C", fontWeight: "bold" }}>Fair</Text>
-        </Text>
+        {settingsData.map((item, index) => (
+          <Text key={index} className="text-sm color-primary-200 mb-1">
+            <Text className="text-lg font-medium mb-1">{item.label}:</Text>
+            {item.label !== "Tier" ? "\n" : " "}
+            <Text className={item.label === "Tier" ? "color-primary-600" : ""}>
+              {item.value}
+            </Text>
+          </Text>
+        ))}
       </View>
     </View>
   );

@@ -24,8 +24,9 @@ function NavBarLayout() {
   };
 
   const handlePressLogo = () => {
-    router.push("/(tabs)/profileSettings");
-    console.log("Logo pressed");
+    if (pathname !== "/profileSettings") {
+      router.push("/(tabs)/profileSettings");
+    }
   };
 
   return (
@@ -43,9 +44,11 @@ function NavBarLayout() {
         ) : null}
         <Image source={logoImage} style={styles.ImageContainer}></Image>
 
-        <Pressable onPress={handlePressLogo}>
-          <ProfilePlaceHolder />
-        </Pressable>
+        <ProfilePlaceHolder
+          size="small"
+          onPress={handlePressLogo}
+          shadow="shadow-lg"
+        />
       </View>
     </View>
   );
