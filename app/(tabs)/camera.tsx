@@ -3,8 +3,10 @@ import { useRef, useState } from "react";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { Image } from "expo-image";
 import axios from "axios";
+import CameraButton from "@/components/ui/CameraButton";
 
 export default function App() {
+  // const APIURL = process.env.EXPO_PUBLIC_APIURL;
   const [permission, requestPermission] = useCameraPermissions();
   const ref = useRef<CameraView>(null);
   const [uri, setUri] = useState<string | null>(null);
@@ -25,7 +27,7 @@ export default function App() {
       // FormData entries method not available in React Native
 
       const response = await axios.post(
-        "https://af2a-41-210-155-111.ngrok-free.app/predict",
+        `https://e218-2c0f-3d00-64a-cc00-4071-bce0-2231-439c.ngrok-free.app/predict/`,
         formData,
         {
           headers: {
@@ -85,13 +87,16 @@ export default function App() {
 
   const renderCamera = () => {
     return (
-      <CameraView
-        style={styles.camera}
-        ref={ref}
-        mute={false}
-        responsiveOrientationWhenOrientationLocked
-      >
-        <View className="flex-1 items-center justify-center bottom-[-35%]">
+      <>
+        <CameraView
+          style={styles.camera}
+          ref={ref}
+          mute={false}
+          responsiveOrientationWhenOrientationLocked
+        />
+        <CameraButton onPress={takePicture} />
+        {/* Uncomment the following section if you want to use a custom shutter button */}
+        {/* <View style={styles.shutterContainer}>
           <Pressable onPress={takePicture}>
             {({ pressed }) => (
               <View
@@ -113,8 +118,30 @@ export default function App() {
               </View>
             )}
           </Pressable>
-        </View>
-      </CameraView>
+        {/* <View className="flex-1 items-center justify-center bottom-[-35%]">
+          <Pressable onPress={takePicture}>
+            {({ pressed }) => (
+              <View
+                style={[
+                  styles.shutterBtn,
+                  {
+                    opacity: pressed ? 0.5 : 1,
+                  },
+                ]}
+              >
+                <View
+                  style={[
+                    styles.shutterBtnInner,
+                    {
+                      backgroundColor: "white",
+                    },
+                  ]}
+                />
+              </View>
+            )}
+          </Pressable>
+        </View> */}
+      </>
     );
   };
 
