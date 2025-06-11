@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import React from "react";
 import ProfilePlaceHolder from "../navBar/ProfilePlaceHolder";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 
-const progressCard = () => {
+const ProgressCard = () => {
   const userData = useSelector((state: RootState) => state.userData);
   const { name, phone, tier } = userData;
   const settingsData: {
@@ -37,29 +37,4 @@ const progressCard = () => {
   );
 };
 
-export default progressCard;
-
-const styles = StyleSheet.create({
-  progressCard: {
-    flexDirection: "row",
-    backgroundColor: "#fff",
-    width: "85%",
-    borderRadius: 16,
-    marginVertical: 22,
-    alignItems: "center",
-    elevation: 4,
-    shadowColor: "#AAC8B4",
-    shadowOpacity: 0.18,
-    shadowRadius: 10,
-  },
-  progressLabel: {
-    fontWeight: "bold",
-    color: "#37704C",
-    fontSize: 17,
-    marginBottom: 11,
-    paddingTop: 6,
-  },
-  progressSub: { fontSize: 15, color: "#39744B", marginBottom: 4 },
-  area: { color: "#758884", fontWeight: "600" },
-  boldLabel: { fontWeight: "700", color: "#37704C" },
-});
+export default ProgressCard;

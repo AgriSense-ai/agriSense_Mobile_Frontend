@@ -1,18 +1,14 @@
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useRef } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { Image } from "expo-image";
 import axios from "axios";
 import CameraButton from "@/components/ui/CameraButton";
 import NavBarLayout from "@/components/navBar/NavBarLayout";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/store/store";
+import { useDispatch } from "react-redux";
 import { imageCaptureAction } from "@/store/imagePrediction";
-import LoadingPage from "./predictionPage";
 import { useRouter } from "expo-router";
 
 export default function App() {
-  const uri = useSelector((state: RootState) => state.predictionData.imageUrl);
   const dispatch = useDispatch();
   const [permission, requestPermission] = useCameraPermissions();
   const ref = useRef<CameraView>(null);
